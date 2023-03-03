@@ -1,0 +1,11 @@
+{
+    "nested_loop_algo": "BlockStep",
+    "timers": {
+        "time_network": 1417357,
+        "time_create": 352666771,
+        "time_connect": 81407049,
+        "time_presimulate": 843216873,
+        "time_simulate": 8674290987,
+        "time_total": 9952999037
+    }
+}
