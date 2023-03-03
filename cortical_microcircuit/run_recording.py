@@ -1,5 +1,5 @@
 #
-#  eval_microcircuit_time.py
+#  run_microcircuit.py
 #
 #  This file is part of NEST GPU.
 #
@@ -34,9 +34,10 @@ basic plots of the network activity.
 
 from stimulus_params import stim_dict
 from network_params import net_dict
-from sim_params_norec import sim_dict
+from sim_params import sim_dict
 import network
 
+import numpy as np
 from time import perf_counter_ns
 from argparse import ArgumentParser
 from pathlib import Path
@@ -59,6 +60,7 @@ else:
 file_path = data_path / args.file
 assert 0 <= args.algo and args.algo < 9 and data_path.is_dir() and not file_path.exists()
 sim_dict["master_seed"] = args.seed
+sim_dict["overwrite_files"] = False
 
 print(f"Arguments: {args}")
 
@@ -120,4 +122,18 @@ with file_path.open("w") as f:
     dump(info_dict, f, indent=4)
 
 print(dumps(info_dict, indent=4))
+
+###############################################################################
+# Plot a spike raster of the simulated neurons and a box plot of the firing
+# rates for each population.
+# For visual purposes only, spikes 100 ms before and 100 ms after the thalamic
+# stimulus time are plotted here by default.
+# The computation of spike rates discards the presimulation time to exclude
+# initialization artifacts.
+
+raster_plot_interval = np.array([stim_dict['th_start'] - 100.0,
+                                 stim_dict['th_start'] + 100.0])
+firing_rates_interval = np.array([sim_dict['t_presim'],
+                                  sim_dict['t_presim'] + sim_dict['t_sim']])
+net.evaluate(raster_plot_interval, firing_rates_interval)
 
