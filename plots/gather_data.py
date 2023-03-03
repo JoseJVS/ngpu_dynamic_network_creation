@@ -22,15 +22,11 @@ def get_paths():
 
 def get_json_results(path: Path):
     results = {}
-    for p in path.glob("*.json"):
+    for p in path.glob("*/*.json"):
         with p.open() as f:
             data = json.load(f)
         algo = data["nested_loop_algo"]
         timers = data["timers"]
-        # Quick fix timer error for start and total values
-        if "start" in timers:
-            timers["total"] = timers["total"] + timers["simulate"] - timers["start"]
-            timers.pop("start", None)
         if algo not in results:
             results[algo] = {}
             for timer in timers:
@@ -47,9 +43,7 @@ def get_statistics(results: dict):
         if algo not in stats:
             stats[algo] = {}
         for timer in results[algo]:
-            times = np.array(results[algo][timer])
-            if isinstance(times[0], np.int_):
-                times = times / 1e9
+            times = np.array(results[algo][timer]) / 1e9
             stats[algo][timer] = {
                 "mean": np.mean(times),
                 "std": np.std(times)
