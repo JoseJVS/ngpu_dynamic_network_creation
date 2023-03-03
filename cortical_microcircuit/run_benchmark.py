@@ -36,10 +36,35 @@ from stimulus_params import stim_dict
 from network_params import net_dict
 from sim_params_norec import sim_dict
 import network
-#import nestgpu as ngpu
-import numpy as np
-from time import perf_counter
-time_start = perf_counter()
+
+from time import perf_counter_ns
+from argparse import ArgumentParser
+from pathlib import Path
+from json import dump, dumps
+
+# Get and check file path
+parser = ArgumentParser()
+parser.add_argument("-o", type=str)
+parser.add_argument("--algo", type=int, default=0)
+parser.add_argument("--seed", type=int, default=12345)
+args = parser.parse_args()
+out_path = Path(args.o)
+assert 0 <= args.algo and args.algo < 9 and not out_path.exists()
+sim_dict["master_seed"] = args.seed
+
+nl_dict = {
+        0: "BlockStep",
+        1: "CumulSum",
+        2: "Simple",
+        3: "ParallelInner",
+        4: "ParallelOuter",
+        5: "Frame1D",
+        6: "Frame2D",
+        7: "Smart1D",
+        8: "Smart2D",
+    }
+
+time_start = perf_counter_ns()
 
 ###############################################################################
 # Initialize the network with simulation, network and stimulation parameters,
@@ -52,42 +77,36 @@ time_start = perf_counter()
 # transient has passed.
 
 net = network.Network(sim_dict, net_dict, stim_dict)
-time_network = perf_counter()
+net.set_algo(args.algo)
+time_network = perf_counter_ns()
 
 net.create()
-time_create = perf_counter()
+time_create = perf_counter_ns()
 
 net.connect()
-time_connect = perf_counter()
+time_connect = perf_counter_ns()
 
 net.simulate(sim_dict['t_presim'])
-time_presimulate = perf_counter()
+time_presimulate = perf_counter_ns()
 
 net.simulate(sim_dict['t_sim'])
-time_simulate = perf_counter()
+time_simulate = perf_counter_ns()
 
+time_dict = {
+        "time_network": time_network - time_start,
+        "time_create": time_create - time_network,
+        "time_connect": time_connect - time_create,
+        "time_presimulate": time_presimulate - time_connect,
+        "time_simulate": time_simulate - time_presimulate,
+        "time_total": time_simulate - time_start,
+        }
 
-###############################################################################
-# Summarize time measurements. Rank 0 usually takes longest because of the
-# data evaluation and print calls.
+info_dict = {
+        "nested_loop_algo": nl_dict[args.algo],
+        "timers": time_dict
+    }
 
-print(
-    '\nTimes:\n' + # of Rank {}:\n'.format( .Rank()) +
-    '  Total time:          {:.3f} ms\n'.format(
-        (time_simulate -
-        time_start)*1000.0) +
-    '  Time to initialize:  {:.3f} ms\n'.format(
-        (time_network -
-        time_start)*1000.0) +
-    '  Time to create:      {:.3f} ms\n'.format(
-        (time_create -
-        time_network)*1000.0) +
-    '  Time to connect:     {:.3f} ms\n'.format(
-        (time_connect -
-        time_create)*1000.0) +
-    '  Time to pre simulate: {:.3f} ms\n'.format(
-        (time_presimulate -
-        time_connect)*1000.0) +
-    '  Time to simulate:    {:.3f} ms\n'.format(
-        (time_simulate -
-        time_presimulate)*1000.0) )
+with out_path.open("w") as f:
+    dump(info_dict, f, indent=4)
+
+print(dumps(info_dict, indent=4))
