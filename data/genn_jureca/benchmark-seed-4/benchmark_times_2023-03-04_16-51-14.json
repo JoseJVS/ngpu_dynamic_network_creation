@@ -1,0 +1,12 @@
+{
+    "timers": {
+        "time_network": 198651,
+        "time_create": 2060270,
+        "time_connect": 14918762,
+        "time_build": 15802314263,
+        "time_load": 660811521,
+        "time_presimulate": 507658239,
+        "time_simulate": 6617927166,
+        "time_total": 23605888872
+    }
+}
