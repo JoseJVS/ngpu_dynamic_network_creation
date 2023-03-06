@@ -1,0 +1,95 @@
+{
+    "threads": 64,
+    "procs": 6,
+    "1": {
+        "stats": {
+            "local_spike_counter": 408160,
+            "num_neurons": 77169,
+            "rate": 0.5037305258896831
+        },
+        "timers": {
+            "time_network": 81548264,
+            "time_create": 537391712,
+            "time_connect": 10279346903,
+            "time_presimulate": 708678262,
+            "time_simulate": 11053169474,
+            "time_total": 22660134615
+        }
+    },
+    "5": {
+        "stats": {
+            "local_spike_counter": 414005,
+            "num_neurons": 77169,
+            "rate": 0.5109441306618929
+        },
+        "timers": {
+            "time_network": 74514708,
+            "time_create": 549042146,
+            "time_connect": 10268372932,
+            "time_presimulate": 707999550,
+            "time_simulate": 11053268171,
+            "time_total": 22653197507
+        }
+    },
+    "4": {
+        "stats": {
+            "local_spike_counter": 407533,
+            "num_neurons": 77169,
+            "rate": 0.5029567140518428
+        },
+        "timers": {
+            "time_network": 70218133,
+            "time_create": 543516264,
+            "time_connect": 10274680182,
+            "time_presimulate": 707183703,
+            "time_simulate": 11053302272,
+            "time_total": 22648900554
+        }
+    },
+    "3": {
+        "stats": {
+            "local_spike_counter": 410964,
+            "num_neurons": 77169,
+            "rate": 0.5071910815408852
+        },
+        "timers": {
+            "time_network": 75939154,
+            "time_create": 537248242,
+            "time_connect": 10279671543,
+            "time_presimulate": 708548572,
+            "time_simulate": 11053189789,
+            "time_total": 22654597300
+        }
+    },
+    "vps": 384,
+    "0": {
+        "stats": {
+            "local_spike_counter": 412573,
+            "num_neurons": 77169,
+            "rate": 0.5091768283464432
+        },
+        "timers": {
+            "time_network": 78469498,
+            "time_create": 554343750,
+            "time_connect": 10262443065,
+            "time_presimulate": 708604252,
+            "time_simulate": 11053312415,
+            "time_total": 22657172980
+        }
+    },
+    "2": {
+        "stats": {
+            "local_spike_counter": 405465,
+            "num_neurons": 77169,
+            "rate": 0.5004044925515984
+        },
+        "timers": {
+            "time_network": 69671708,
+            "time_create": 534960628,
+            "time_connect": 10283746886,
+            "time_presimulate": 706766684,
+            "time_simulate": 11053272759,
+            "time_total": 22648418665
+        }
+    }
+}

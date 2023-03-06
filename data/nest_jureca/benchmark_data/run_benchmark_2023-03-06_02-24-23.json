@@ -1,0 +1,125 @@
+{
+    "threads": 16,
+    "procs": 8,
+    "2": {
+        "stats": {
+            "local_spike_counter": 307642,
+            "num_neurons": 77169,
+            "rate": 0.3796762702022586
+        },
+        "timers": {
+            "time_network": 26118114,
+            "time_create": 398031757,
+            "time_connect": 4137991821,
+            "time_presimulate": 376836798,
+            "time_simulate": 7490240973,
+            "time_total": 12429219463
+        }
+    },
+    "5": {
+        "stats": {
+            "local_spike_counter": 306793,
+            "num_neurons": 77169,
+            "rate": 0.3786284771395373
+        },
+        "timers": {
+            "time_network": 17213179,
+            "time_create": 401285534,
+            "time_connect": 4134722375,
+            "time_presimulate": 376822107,
+            "time_simulate": 7490261133,
+            "time_total": 12420304328
+        }
+    },
+    "7": {
+        "stats": {
+            "local_spike_counter": 303168,
+            "num_neurons": 77169,
+            "rate": 0.3741546846161394
+        },
+        "timers": {
+            "time_network": 30786309,
+            "time_create": 384442397,
+            "time_connect": 4151523281,
+            "time_presimulate": 376890818,
+            "time_simulate": 7490227433,
+            "time_total": 12433870238
+        }
+    },
+    "1": {
+        "stats": {
+            "local_spike_counter": 301688,
+            "num_neurons": 77169,
+            "rate": 0.37232814311693135
+        },
+        "timers": {
+            "time_network": 15025678,
+            "time_create": 392768060,
+            "time_connect": 4143121398,
+            "time_presimulate": 376970039,
+            "time_simulate": 7490228211,
+            "time_total": 12418113386
+        }
+    },
+    "6": {
+        "stats": {
+            "local_spike_counter": 307153,
+            "num_neurons": 77169,
+            "rate": 0.379072771017723
+        },
+        "timers": {
+            "time_network": 31710503,
+            "time_create": 394067337,
+            "time_connect": 4141842991,
+            "time_presimulate": 376938518,
+            "time_simulate": 7490224373,
+            "time_total": 12434783722
+        }
+    },
+    "vps": 128,
+    "0": {
+        "stats": {
+            "local_spike_counter": 302993,
+            "num_neurons": 77169,
+            "rate": 0.3739387084253546
+        },
+        "timers": {
+            "time_network": 11115187,
+            "time_create": 400135448,
+            "time_connect": 4135728060,
+            "time_presimulate": 377008028,
+            "time_simulate": 7490226842,
+            "time_total": 12414213565
+        }
+    },
+    "3": {
+        "stats": {
+            "local_spike_counter": 305339,
+            "num_neurons": 77169,
+            "rate": 0.37683402353153156
+        },
+        "timers": {
+            "time_network": 26941138,
+            "time_create": 383980865,
+            "time_connect": 4152192485,
+            "time_presimulate": 376729827,
+            "time_simulate": 7490179012,
+            "time_total": 12430023327
+        }
+    },
+    "4": {
+        "stats": {
+            "local_spike_counter": 310757,
+            "num_neurons": 77169,
+            "rate": 0.38352064639822675
+        },
+        "timers": {
+            "time_network": 11539989,
+            "time_create": 391196362,
+            "time_connect": 4144867607,
+            "time_presimulate": 376823468,
+            "time_simulate": 7490221422,
+            "time_total": 12414648848
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "threads": 128,
+    "procs": 3,
+    "vps": 384,
+    "0": {
+        "stats": {
+            "local_spike_counter": 830365,
+            "num_neurons": 77169,
+            "rate": 1.0247946837769175
+        },
+        "timers": {
+            "time_network": 103578024,
+            "time_create": 806770818,
+            "time_connect": 36076633566,
+            "time_presimulate": 1615296846,
+            "time_simulate": 23764647665,
+            "time_total": 62366926919
+        }
+    },
+    "2": {
+        "stats": {
+            "local_spike_counter": 822942,
+            "num_neurons": 77169,
+            "rate": 1.0156335908386602
+        },
+        "timers": {
+            "time_network": 101870854,
+            "time_create": 813023745,
+            "time_connect": 36072422886,
+            "time_presimulate": 1613384288,
+            "time_simulate": 23764734568,
+            "time_total": 62365436341
+        }
+    },
+    "1": {
+        "stats": {
+            "local_spike_counter": 824012,
+            "num_neurons": 77169,
+            "rate": 1.016954130976601
+        },
+        "timers": {
+            "time_network": 93644404,
+            "time_create": 830725237,
+            "time_connect": 36052009207,
+            "time_presimulate": 1616104407,
+            "time_simulate": 23764630127,
+            "time_total": 62357113382
+        }
+    }
+}

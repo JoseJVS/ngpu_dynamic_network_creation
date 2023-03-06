@@ -1,0 +1,20 @@
+{
+    "threads": 128,
+    "procs": 1,
+    "vps": 128,
+    "0": {
+        "stats": {
+            "local_spike_counter": 2462892,
+            "num_neurons": 77169,
+            "rate": 3.0395773284238863
+        },
+        "timers": {
+            "time_network": 66006032,
+            "time_create": 1448258536,
+            "time_connect": 30247873213,
+            "time_presimulate": 1852544415,
+            "time_simulate": 30955366780,
+            "time_total": 64570048976
+        }
+    }
+}
