@@ -118,10 +118,22 @@ def get_statistics(results: dict):
         for timer in r_all["timers"]:
             timer_vals = np.array(r_all["timers"][timer]) / 1e9
             assert len(timer_vals) == 10 * results[conf]["procs"]
+            if timer == "time_network":
+                time_net = timer_vals
+            if timer == "time_create":
+                time_cr = timer_vals
+            if timer == "time_connect":
+                time_con = timer_vals
             s_all["timers"][timer] = {
                 "mean": np.mean(timer_vals),
                 "std": np.std(timer_vals),
             }
+
+        time_build = time_net + time_cr + time_con
+        s_all["timers"]["network_construction_time"] = {
+                "mean": np.mean(time_build),
+                "std": np.std(time_build),
+        }
     
     return stats
 
