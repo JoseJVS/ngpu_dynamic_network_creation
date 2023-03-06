@@ -44,10 +44,24 @@ def get_statistics(results: dict):
             stats[algo] = {}
         for timer in results[algo]:
             times = np.array(results[algo][timer]) / 1e9
+            if timer == "time_network":
+                times_network = times
+            if timer == "time_create":
+                times_create = times
+            if timer == "time_connect":
+                times_connect = times
+            if timer == "time_calibrate":
+                times_calibrate = times
             stats[algo][timer] = {
                 "mean": np.mean(times),
                 "std": np.std(times)
             }
+
+        times_build = times_network + times_create + times_connect + times_calibrate
+        stats[algo]["network_construction_time"] = {
+            "mean": np.mean(times_build),
+            "std": np.std(times_build)
+        }
     
     return stats
 
