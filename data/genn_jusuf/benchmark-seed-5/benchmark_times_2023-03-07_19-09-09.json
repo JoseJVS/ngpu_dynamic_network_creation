@@ -1,0 +1,9 @@
+{
+    "timers": {
+        "time_model_def": 16848119,
+        "time_build": 33063119255,
+        "time_load": 788205954,
+        "time_simulate": 6490848833,
+        "time_total": 40359022161
+    }
+}

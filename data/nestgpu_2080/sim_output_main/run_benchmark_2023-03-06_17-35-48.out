@@ -1,0 +1,70 @@
+Calibrating ...
+Simulating ...
+Neural activity simulation time: 0.100 ms
+
+  SpikeBufferUpdate_time: 0.000569207
+  poisson_generator_time: 1.2893e-05
+  neuron_Update_time: 1.2858e-05
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 1.95799e-06
+  SpikeReset_time: 1.996e-06
+  ExternalSpikeReset_time: 0
+Building time: 40.5182
+Simulation time: 0.000658348
+Simulating ...
+Neural activity simulation time: 10000.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(file='benchmark_times_2023-03-06_17-35-48.json', path='../sim_output/benchmark-seed-0-algo-0', seed=0, algo=0)
+Data will be written to: ../sim_output/benchmark-seed-0-algo-0/
+  Directory already existed. Old data will be overwritten.
+
+
+Cannot set nested loop algorithm in NEST GPU version < 2.0
+Creating neuronal populations.
+Creating Poisson generators for background input.
+Connecting neuronal populations recurrently.
+Connecting Poisson generators for background input.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "nested_loop_algo": "BlockStep",
+    "timers": {
+        "time_network": 151408,
+        "time_create": 1866906387,
+        "time_connect": 36232699508,
+        "time_calibrate": 2086002316,
+        "time_simulate": 8482194439,
+        "time_total": 48667954058
+    }
+}
+
+  SpikeBufferUpdate_time: 0.118002
+  poisson_generator_time: 5.0362
+  neuron_Update_time: 0.361764
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0.123146
+  GetSpike_time: 0.122912
+  SpikeReset_time: 0.107353
+  ExternalSpikeReset_time: 0
+Building time: 40.5182
+Simulation time: 8.48334
+
+real	0m49,494s
+user	0m47,354s
+sys	0m3,249s
