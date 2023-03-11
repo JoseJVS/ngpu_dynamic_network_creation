@@ -404,8 +404,8 @@ time_simulate =  perf_counter_ns()
 time_dict = {
         "time_model_def": time_model_def - time_start,
         "time_build": time_build - time_model_def,
-        "time_construct_no_load": time_build - time_start,
         "time_load": time_load - time_build,
+        "time_construct_no_build": (time_load - time_start) - (time_build - time_model_def),
         "time_construct": time_load - time_start,
         "time_simulate": time_simulate - time_load,
         "time_total": time_simulate - time_start,
