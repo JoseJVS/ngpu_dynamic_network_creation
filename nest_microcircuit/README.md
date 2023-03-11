@@ -32,3 +32,4 @@ These files were added for benchmarking purposes:
  - merge_data.py: Python script to merge output of multiple MPI processes during a single simulation.
  - gather_data.py: Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - benchmark.sh: Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
+ 
