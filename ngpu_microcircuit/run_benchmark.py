@@ -100,7 +100,12 @@ net_dict.update({
 time_start = perf_counter_ns()
 
 net = network.Network(sim_dict, net_dict, stim_dict)
-net.set_algo(args.algo)
+
+if hasattr(ngpu, "SetNestedLoopAlgo"):
+    ngpu.SetNestedLoopAlgo(algo_num)
+else:
+    print("Cannot set nested loop algorithm in NEST GPU version < 2.0")
+
 time_initialize = perf_counter_ns()
 
 net.create()
