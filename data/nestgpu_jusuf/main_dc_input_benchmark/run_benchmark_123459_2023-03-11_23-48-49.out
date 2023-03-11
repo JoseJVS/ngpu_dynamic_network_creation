@@ -1,0 +1,71 @@
+Calibrating ...
+Simulating ...
+Neural activity simulation time: 0.100 ms
+
+  SpikeBufferUpdate_time: 0.00175045
+  poisson_generator_time: 1.5e-07
+  neuron_Update_time: 2.678e-05
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 6.51e-06
+  SpikeReset_time: 5.83e-06
+  ExternalSpikeReset_time: 0
+Building time: 59.9545
+Simulation time: 0.00186612
+Simulating ...
+Neural activity simulation time: 10000.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(algo=0, file='benchmark_times_123459_2023-03-11_23-48-49', path='data/seed_123459_id_2023-03-11_23-48-49', seed=123459)
+Data will be written to: data/seed_123459_id_2023-03-11_23-48-49/
+  Directory already existed. Old data will be overwritten.
+
+DC input compensates for missing Poisson input.
+
+
+Cannot set nested loop algorithm in NEST GPU version < 2.0
+Creating neuronal populations.
+Connecting neuronal populations recurrently.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 77169,
+        "seed": 123459
+    },
+    "timers": {
+        "time_initialize": 495961,
+        "time_create": 2984526532,
+        "time_connect": 54464187742,
+        "time_calibrate": 1990813961,
+        "time_construct": 59440024196,
+        "time_simulate": 6532663862,
+        "time_total": 65972688058
+    }
+}
+
+  SpikeBufferUpdate_time: 0.270023
+  poisson_generator_time: 0.00327642
+  neuron_Update_time: 0.811683
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0.278546
+  GetSpike_time: 0.276445
+  SpikeReset_time: 0.270719
+  ExternalSpikeReset_time: 0
+Building time: 59.9545
+Simulation time: 6.53456
