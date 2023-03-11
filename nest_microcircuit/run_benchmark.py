@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# bm_run_microcircuit.py
+# run_benchmark.py
 
 """PyNEST Microcircuit: Run Benchmark Simulation
 --------------------------------------------------
@@ -73,10 +73,8 @@ sim_dict.update({
 net_dict.update({
     'N_scaling': 1.,
     'K_scaling': 1.,
-    'poisson_input': False,
-    'V0_type': 'optimized',
-    'synapse_type': 'static_synapse'})
-
+    'poisson_input': True,
+    'V0_type': 'optimized'})
 
 time_start = perf_counter_ns()
 
@@ -112,16 +110,16 @@ time_dict = {
 ###############################################################################
 # Query the accumulated number of spikes on each rank.
 
-local_spike_counter = net.get_local_spike_counter()
-num_neurons = net.get_network_size()
-rate = 1. * local_spike_counter / num_neurons / net.get_total_sim_time() * 1000
+local_spike_counter = nest.GetKernelStatus('local_spike_counter')
+num_neurons = nest.GetKernelStatus('network_size')
+rate = 1. * local_spike_counter / num_neurons / (sim_dict['t_presim'] + sim_dict['t_sim']) * 1000
 
 stats_dict = {
     "local_spike_counter": local_spike_counter,
     "rate": rate
 }
 
-if args.threads != nest.local_num_threads:
+if args.threads != nest.GetKernelStatus('local_num_threads'):
     print("WARNING: Thread number mismatch")
 if args.procs != nest.NumProcesses():
     print("WARNING: Process number mismatch")

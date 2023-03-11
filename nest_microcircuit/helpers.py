@@ -27,10 +27,13 @@ microcircuit.
 
 """
 
+from matplotlib.patches import Polygon
+import matplotlib.pyplot as plt
 import os
 import numpy as np
-import re
-import sys
+if 'DISPLAY' not in os.environ:
+    import matplotlib
+    matplotlib.use('Agg')
 
 
 def num_synapses_from_conn_probs(conn_probs, popsize1, popsize2):
@@ -44,7 +47,7 @@ def num_synapses_from_conn_probs(conn_probs, popsize1, popsize2):
     conn_probs
         Matrix of connection probabilities.
     popsize1
-        Size of first poulation.
+        Size of first population.
     popsize2
         Size of second population.
 
@@ -59,7 +62,7 @@ def num_synapses_from_conn_probs(conn_probs, popsize1, popsize2):
 
 
 def postsynaptic_potential_to_current(C_m, tau_m, tau_syn):
-    """ Computes a factor to convert postsynaptic potentials to currents.
+    r""" Computes a factor to convert postsynaptic potentials to currents.
 
     The time course of the postsynaptic potential ``v`` is computed as
     :math: `v(t)=(i*h)(t)`
@@ -233,8 +236,8 @@ def plot_raster(path, name, begin, end, N_scaling):
     last_node_id = node_ids[-1, -1]
     mod_node_ids = np.abs(node_ids - last_node_id) + 1
 
-    label_pos = [(mod_node_ids[i, 0] + mod_node_ids[i + 1, 1]) /
-                 2. for i in np.arange(0, 8, 2)]
+    label_pos = [(mod_node_ids[i, 0] + mod_node_ids[i + 1, 1]) / 2.
+                 for i in np.arange(0, 8, 2)]
 
     stp = 1
     if N_scaling > 0.1:
@@ -387,8 +390,8 @@ def __gather_metadata(path, name):
     # load node IDs
     node_idfile = open(path + 'population_nodeids.dat', 'r')
     node_ids = []
-    for l in node_idfile:
-        node_ids.append(l.split())
+    for node_id in node_idfile:
+        node_ids.append(node_id.split())
     node_ids = np.array(node_ids, dtype='i4')
     return sd_files, sd_names, node_ids
 
@@ -423,10 +426,7 @@ def __load_spike_times(path, name, begin, end):
         for j, f in enumerate(sd_files):
             if name in f:
                 # skip header while loading
-                if f.split('.')[-1] == 'dat':
-                    ld = np.loadtxt(os.path.join(path, f), skiprows=3, dtype=dtype)
-                else:
-                    ld = np.loadtxt(os.path.join(path, f), dtype=dtype)
+                ld = np.loadtxt(os.path.join(path, f), skiprows=3, dtype=dtype)
                 data_i_raw = np.append(data_i_raw, ld)
 
         data_i_raw = np.sort(data_i_raw, order='time_ms')
