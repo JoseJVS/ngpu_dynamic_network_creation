@@ -47,5 +47,9 @@ If particular modifications to model scripts were needed, they were reported in 
 
 ## TODOS:
 
+ - Check file headers
  - rename balanced_izh directory to ngpu_balanced_izh
  - deleted balanced_AdEx folder if model not used for paper
+ - add plots/README.md
+ - add balanced_izh/README.md
+ 
