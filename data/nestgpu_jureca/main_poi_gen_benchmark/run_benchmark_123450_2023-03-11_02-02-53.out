@@ -1,0 +1,71 @@
+Calibrating ...
+Simulating ...
+Neural activity simulation time: 0.100 ms
+
+  SpikeBufferUpdate_time: 0.00208564
+  poisson_generator_time: 1.496e-05
+  neuron_Update_time: 2.39e-05
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 6.2e-06
+  SpikeReset_time: 4.71e-06
+  ExternalSpikeReset_time: 0
+Building time: 67.323
+Simulation time: 0.00219426
+Simulating ...
+Neural activity simulation time: 10000.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(algo=0, file='benchmark_times_123450_2023-03-11_02-02-53', path='data/seed_123450_id_2023-03-11_02-02-53', seed=123450)
+Data will be written to: data/seed_123450_id_2023-03-11_02-02-53/
+  Directory already existed. Old data will be overwritten.
+
+
+Cannot set nested loop algorithm in NEST GPU version < 2.0
+Creating neuronal populations.
+Creating Poisson generators for background input.
+Connecting neuronal populations recurrently.
+Connecting Poisson generators for background input.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 77169,
+        "seed": 123450
+    },
+    "timers": {
+        "time_initialize": 1664619,
+        "time_create": 3497329150,
+        "time_connect": 56056777464,
+        "time_calibrate": 2067436174,
+        "time_construct": 61623207407,
+        "time_simulate": 8936682633,
+        "time_total": 70559890040
+    }
+}
+
+  SpikeBufferUpdate_time: 0.272467
+  poisson_generator_time: 4.11318
+  neuron_Update_time: 0.812166
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0.27871
+  GetSpike_time: 0.278425
+  SpikeReset_time: 0.265129
+  ExternalSpikeReset_time: 0
+Building time: 67.323
+Simulation time: 8.93887

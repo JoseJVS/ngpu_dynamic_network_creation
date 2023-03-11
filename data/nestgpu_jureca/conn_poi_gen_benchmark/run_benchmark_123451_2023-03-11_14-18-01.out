@@ -1,0 +1,79 @@
+Allocating auxiliary GPU memory...
+storage bytes: 323815167
+Sorting...
+Indexing connection groups...
+Total number of connection groups: 2569377
+Maximum number of connection groups (delays) over all nodes: 38
+Time:                                   403.07 ms
+Done
+Calibrating ...
+Max delay of direct (poisson generator) connections: 15
+Simulating ...
+Neural activity simulation time: 0.100 ms
+
+  SpikeBufferUpdate_time: 0.00205936
+  poisson_generator_time: 4.68e-06
+  neuron_Update_time: 1.879e-05
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 4.47e-06
+  SpikeReset_time: 4.48e-06
+  ExternalSpikeReset_time: 0
+Building time: 0.493909
+Simulation time: 0.00214474
+Simulating ...
+Neural activity simulation time: 10000.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(algo=0, file='benchmark_times_123451_2023-03-11_14-18-01', path='data/seed_123451_id_2023-03-11_14-18-01', seed=123451)
+Data will be written to: data/seed_123451_id_2023-03-11_14-18-01/
+  Directory already existed. Old data will be overwritten.
+
+
+Creating neuronal populations.
+Creating Poisson generators for background input.
+Connecting neuronal populations recurrently.
+Connecting Poisson generators for background input.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 77169,
+        "seed": 123451
+    },
+    "timers": {
+        "time_initialize": 1316787,
+        "time_create": 6414692,
+        "time_connect": 81251974,
+        "time_calibrate": 408460224,
+        "time_construct": 497443677,
+        "time_simulate": 8574420572,
+        "time_total": 9071864249
+    }
+}
+
+  SpikeBufferUpdate_time: 0.273572
+  poisson_generator_time: 0.271857
+  neuron_Update_time: 1.10558
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0.286032
+  GetSpike_time: 0.286857
+  SpikeReset_time: 0.275821
+  ExternalSpikeReset_time: 0
+Building time: 0.493909
+Simulation time: 8.5765

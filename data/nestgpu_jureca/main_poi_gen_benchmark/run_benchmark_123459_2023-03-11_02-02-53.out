@@ -1,0 +1,71 @@
+Calibrating ...
+Simulating ...
+Neural activity simulation time: 0.100 ms
+
+  SpikeBufferUpdate_time: 0.00208529
+  poisson_generator_time: 1.482e-05
+  neuron_Update_time: 1.956e-05
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 5e-06
+  SpikeReset_time: 4.5e-06
+  ExternalSpikeReset_time: 0
+Building time: 61.19
+Simulation time: 0.00219949
+Simulating ...
+Neural activity simulation time: 10000.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(algo=0, file='benchmark_times_123459_2023-03-11_02-02-53', path='data/seed_123459_id_2023-03-11_02-02-53', seed=123459)
+Data will be written to: data/seed_123459_id_2023-03-11_02-02-53/
+  Directory already existed. Old data will be overwritten.
+
+
+Cannot set nested loop algorithm in NEST GPU version < 2.0
+Creating neuronal populations.
+Creating Poisson generators for background input.
+Connecting neuronal populations recurrently.
+Connecting Poisson generators for background input.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 77169,
+        "seed": 123459
+    },
+    "timers": {
+        "time_initialize": 1559738,
+        "time_create": 3333789943,
+        "time_connect": 55288163733,
+        "time_calibrate": 2067635124,
+        "time_construct": 60691148538,
+        "time_simulate": 8961844140,
+        "time_total": 69652992678
+    }
+}
+
+  SpikeBufferUpdate_time: 0.27799
+  poisson_generator_time: 4.10583
+  neuron_Update_time: 0.824846
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0.277873
+  GetSpike_time: 0.281208
+  SpikeReset_time: 0.270137
+  ExternalSpikeReset_time: 0
+Building time: 61.19
+Simulation time: 8.96402

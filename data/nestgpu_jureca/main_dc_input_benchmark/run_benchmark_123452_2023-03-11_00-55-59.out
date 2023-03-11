@@ -1,0 +1,71 @@
+Calibrating ...
+Simulating ...
+Neural activity simulation time: 0.100 ms
+
+  SpikeBufferUpdate_time: 0.00217684
+  poisson_generator_time: 2.5e-07
+  neuron_Update_time: 2.621e-05
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 5.72e-06
+  SpikeReset_time: 5.46e-06
+  ExternalSpikeReset_time: 0
+Building time: 61.4531
+Simulation time: 0.00229107
+Simulating ...
+Neural activity simulation time: 10000.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(algo=0, file='benchmark_times_123452_2023-03-11_00-55-59', path='data/seed_123452_id_2023-03-11_00-55-59', seed=123452)
+Data will be written to: data/seed_123452_id_2023-03-11_00-55-59/
+  Directory already existed. Old data will be overwritten.
+
+DC input compensates for missing Poisson input.
+
+
+Cannot set nested loop algorithm in NEST GPU version < 2.0
+Creating neuronal populations.
+Connecting neuronal populations recurrently.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 77169,
+        "seed": 123452
+    },
+    "timers": {
+        "time_initialize": 1259983,
+        "time_create": 3263350238,
+        "time_connect": 55620856569,
+        "time_calibrate": 2068937528,
+        "time_construct": 60954404318,
+        "time_simulate": 7399535681,
+        "time_total": 68353939999
+    }
+}
+
+  SpikeBufferUpdate_time: 0.264873
+  poisson_generator_time: 0.00324575
+  neuron_Update_time: 0.787618
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0.274512
+  GetSpike_time: 0.272611
+  SpikeReset_time: 0.270492
+  ExternalSpikeReset_time: 0
+Building time: 61.4531
+Simulation time: 7.4019

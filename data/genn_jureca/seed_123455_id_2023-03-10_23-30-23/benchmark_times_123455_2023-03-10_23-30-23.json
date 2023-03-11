@@ -1,0 +1,15 @@
+{
+    "conf": {
+        "seed": 123455,
+        "num_neurons": 77169
+    },
+    "timers": {
+        "time_model_def": 17202204,
+        "time_build": 14199131837,
+        "time_construct_no_load": 14216334041,
+        "time_load": 829822595,
+        "time_construct": 15046156636,
+        "time_simulate": 5385817624,
+        "time_total": 20431974260
+    }
+}

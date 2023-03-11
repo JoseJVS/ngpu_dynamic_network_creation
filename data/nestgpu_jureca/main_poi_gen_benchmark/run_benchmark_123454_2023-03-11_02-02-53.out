@@ -1,0 +1,71 @@
+Calibrating ...
+Simulating ...
+Neural activity simulation time: 0.100 ms
+
+  SpikeBufferUpdate_time: 0.00209652
+  poisson_generator_time: 1.626e-05
+  neuron_Update_time: 1.826e-05
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 5.451e-06
+  SpikeReset_time: 6.08e-06
+  ExternalSpikeReset_time: 0
+Building time: 61.9869
+Simulation time: 0.0022134
+Simulating ...
+Neural activity simulation time: 10000.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(algo=0, file='benchmark_times_123454_2023-03-11_02-02-53', path='data/seed_123454_id_2023-03-11_02-02-53', seed=123454)
+Data will be written to: data/seed_123454_id_2023-03-11_02-02-53/
+  Directory already existed. Old data will be overwritten.
+
+
+Cannot set nested loop algorithm in NEST GPU version < 2.0
+Creating neuronal populations.
+Creating Poisson generators for background input.
+Connecting neuronal populations recurrently.
+Connecting Poisson generators for background input.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 77169,
+        "seed": 123454
+    },
+    "timers": {
+        "time_initialize": 1317297,
+        "time_create": 3296597689,
+        "time_connect": 56111094993,
+        "time_calibrate": 2077253803,
+        "time_construct": 61486263782,
+        "time_simulate": 8971149548,
+        "time_total": 70457413330
+    }
+}
+
+  SpikeBufferUpdate_time: 0.268196
+  poisson_generator_time: 4.10632
+  neuron_Update_time: 0.806069
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0.272054
+  GetSpike_time: 0.272842
+  SpikeReset_time: 0.263643
+  ExternalSpikeReset_time: 0
+Building time: 61.9869
+Simulation time: 8.97334
