@@ -1,3 +1,19 @@
+# -*- coding: utf-8 -*-
+#
+# run_benchmark.py
+#
+# ADAPTED FROM: https://github.com/BrainsOnBoard/pygenn_paper/blob/master/models/potjans_microcircuit/potjans_microcircuit_pygenn.py
+
+"""PyGeNN Microcircuit: Run Benchmark Simulation
+--------------------------------------------------
+
+This is an example script for running the microcircuit model.
+This version is adjusted for benchmark simulations. Since spikes are
+usually not recorded in this scenario, the evaluation part with plotting of
+'potjans_microcircuit_genn.py' is not performed here.
+
+"""
+
 import numpy as np 
 import matplotlib.pyplot as plt 
 

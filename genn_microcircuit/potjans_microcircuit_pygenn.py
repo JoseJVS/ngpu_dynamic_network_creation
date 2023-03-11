@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+#
+# potjans_microcircuit_pygenn.py
+#
+# TAKEN FROM: https://github.com/BrainsOnBoard/pygenn_paper/blob/master/models/potjans_microcircuit/potjans_microcircuit_pygenn.py
+# WE DO NOT CLAIM OWNERSHIP, AUTHORSHIP OR COPYRIGHT OF THIS FILE
+
 import numpy as np 
 import matplotlib.pyplot as plt 
 
