@@ -27,6 +27,8 @@ These files were modified for benchmarking purposes:
 
 These files were added for benchmarking purposes:
  - run_benchmark.py: Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
+  - Added handling of number of threads and processes passed as arguments.
+  - Added computing of mean firing rate of neurons using the local_spike_counter kernel attribute.
  - merge_data.py: Python script to merge output of multiple MPI processes during a single simulation.
  - gather_data.py: Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - benchmark.sh: Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.

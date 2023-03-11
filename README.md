@@ -52,4 +52,5 @@ If particular modifications to model scripts were needed, they were reported in 
  - deleted balanced_AdEx folder if model not used for paper
  - add plots/README.md
  - add balanced_izh/README.md
+ - add comments to data scripts
  
