@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+#
+# run_benchmark.py
+
+"""
+
+Plotting instructions for cortical microcircuit data.
+This script assumes that the data used was generated
+by the benchmark.sh script in each model directory.
+
+"""
+
 import matplotlib.pyplot as plt
 import json
 
