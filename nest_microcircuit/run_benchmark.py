@@ -73,7 +73,7 @@ sim_dict.update({
 net_dict.update({
     'N_scaling': 1.,
     'K_scaling': 1.,
-    'poisson_input': False,
+    'poisson_input': True,
     'V0_type': 'optimized'})
 
 time_start = perf_counter_ns()
