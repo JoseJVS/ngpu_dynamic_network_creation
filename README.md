@@ -14,6 +14,7 @@ The data post processing was tested with:
  * Python 3.8.6
  * Numpy 1.22
  * Matplotlib 3.5
+ * Tol Colors 1.2.1 (https://pypi.org/project/tol-colors/)
 
 ## Contents
 The [data](data/) directory contains all of the generated data used in the paper and the [plots](plots/) directory contains the scripts to generate the plots in the paper.
