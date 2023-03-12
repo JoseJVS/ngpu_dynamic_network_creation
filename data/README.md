@@ -23,9 +23,9 @@ The "gathered" data is found at the top of each benchmark data directory and nam
 
 [GeNN](genn_2080) directory contains a single set of microcircuit benchmarking data.
 <br>
-NEST and NEST GPU directories contain data sets for microcircuit benchmarks using DC inputs or poisson generators.
+NEST and NEST GPU directories contain data sets for microcircuit benchmarks using DC inputs or poisson generators, these are stored in "dc_input_benchmark" and "poi_gen_benchmark" directories respectively.
 <br>
-NEST GPU directories contain benchmarking sets for both the "main" version and "conn" version described in [README](../README.md).
+NEST GPU directories contain benchmarking sets for both the "main" version and "conn" version described in [README](../README.md), to distinguish them, "main" and "conn" prefixes were added to the corresponding directories.
 
 ### Balanced random network with Izhikevich neurons
 
