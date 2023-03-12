@@ -29,11 +29,11 @@ for seed in {0..9}; do
 		exit 1
 	fi
 
-	# Run locally, using MPI process pinning to each L3cache partition, placed as distant as possible
-	# python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed 2> $data_path/run_benchmark_$run_id.err 1> $data_path/run_benchmark_$run_id.out
+	# Run locally
+	python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed 2> $data_path/run_benchmark_$run_id.err 1> $data_path/run_benchmark_$run_id.out
 
-	# Run with slurm, and let it handle the pinning
-	srun --ntasks-per-node=$procs --cpus-per-task=$threads --threads-per-core=1 --cpu-bind=verbose,rank --error=$data_path/run_benchmark_$run_id.err --output=$data_path/run_benchmark_$run_id.out python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed
+	# Run with slurm
+	# srun --ntasks-per-node=$procs --cpus-per-task=$threads --threads-per-core=1 --cpu-bind=verbose,rank --error=$data_path/run_benchmark_$run_id.err --output=$data_path/run_benchmark_$run_id.out python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed
 
 	# Delete build directory
 	rm -rf potjans_microcircuit_CODE
