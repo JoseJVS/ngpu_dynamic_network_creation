@@ -1,0 +1,532 @@
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: heads/v3.3@ed45e471f
+ Built: Mar  5 2023 19:23:15
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: heads/v3.3@ed45e471f
+ Built: Mar  5 2023 19:23:15
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: heads/v3.3@ed45e471f
+ Built: Mar  5 2023 19:23:15
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: heads/v3.3@ed45e471f
+ Built: Mar  5 2023 19:23:15
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: heads/v3.3@ed45e471f
+ Built: Mar  5 2023 19:23:15
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: heads/v3.3@ed45e471f
+ Built: Mar  5 2023 19:23:15
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: heads/v3.3@ed45e471f
+ Built: Mar  5 2023 19:23:15
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: heads/v3.3@ed45e471f
+ Built: Mar  5 2023 19:23:15
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+
+Mar 12 13:55:38 SimulationManager::set_status [Info]: 
+    Temporal resolution changed from 0.1 to 0.1 ms.
+
+Mar 12 13:55:38 SimulationManager::set_status [Info]: 
+    Temporal resolution changed from 0.1 to 0.1 ms.
+
+Mar 12 13:55:38 SimulationManager::set_status [Info]: 
+    Temporal resolution changed from 0.1 to 0.1 ms.
+
+Mar 12 13:55:38 SimulationManager::set_status [Info]: 
+    Temporal resolution changed from 0.1 to 0.1 ms.
+
+Mar 12 13:55:38 SimulationManager::set_status [Info]: 
+    Temporal resolution changed from 0.1 to 0.1 ms.
+
+Mar 12 13:55:38 SimulationManager::set_status [Info]: 
+    Temporal resolution changed from 0.1 to 0.1 ms.
+
+Mar 12 13:55:38 SimulationManager::set_status [Info]: 
+    Temporal resolution changed from 0.1 to 0.1 ms.
+
+Mar 12 13:55:38 SimulationManager::set_status [Info]: 
+    Temporal resolution changed from 0.1 to 0.1 ms.
+
+Mar 12 13:55:40 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:40 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:40 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:40 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:40 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:40 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:40 NodeManager::prepare_nodes [Info]: 
+    Preparing 9775 nodes for simulation.
+
+Mar 12 13:55:40 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 0.1
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9775
+    Simulation time (ms): 0.1
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 0.1
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 0.1
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 0.1
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 0.1
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 0.1
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 0.1
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:43 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:43 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:43 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:43 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:43 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:43 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:43 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:43 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:43 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:43 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:43 NodeManager::prepare_nodes [Info]: 
+    Preparing 9775 nodes for simulation.
+
+Mar 12 13:55:43 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:43 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:43 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:43 NodeManager::prepare_nodes [Info]: 
+    Preparing 9774 nodes for simulation.
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 10000
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 10000
+    Number of OpenMP threads: 16
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 10000
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 10000
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 10000
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9775
+    Simulation time (ms): 10000
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 10000
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:43 SimulationManager::start_updating_ [Info]: 
+    Number of local nodes: 9774
+    Simulation time (ms): 10000
+    Number of OpenMP threads: 16
+    Number of MPI processes: 8
+
+Mar 12 13:55:55 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:55 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:55 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:55 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:55 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:55 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:55 SimulationManager::run [Info]: 
+    Simulation finished.
+
+Mar 12 13:55:55 SimulationManager::run [Info]: 
+    Simulation finished.
+Arguments: Namespace(file='benchmark_times_123456_2023-03-12_13-53-24', path='data/seed_123456_id_2023-03-12_13-53-24', seed=123456, procs=8, threads=16)
+{
+    "rank": 2,
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77177,
+        "seed": 123456
+    },
+    "stats": {
+        "local_spike_counter": 317150,
+        "rate": 0.4109343826939563
+    },
+    "timers": {
+        "time_initialize": 43433339,
+        "time_create": 392215085,
+        "time_connect": 1885641158,
+        "time_calibrate": 2415026277,
+        "time_construct": 4736315859,
+        "time_simulate": 12648806069,
+        "time_total": 17385121928
+    }
+}
+Arguments: Namespace(file='benchmark_times_123456_2023-03-12_13-53-24', path='data/seed_123456_id_2023-03-12_13-53-24', seed=123456, procs=8, threads=16)
+{
+    "rank": 4,
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77177,
+        "seed": 123456
+    },
+    "stats": {
+        "local_spike_counter": 307888,
+        "rate": 0.3989335179532613
+    },
+    "timers": {
+        "time_initialize": 16612442,
+        "time_create": 400017005,
+        "time_connect": 1877159836,
+        "time_calibrate": 2415701419,
+        "time_construct": 4709490702,
+        "time_simulate": 12648810469,
+        "time_total": 17358301171
+    }
+}
+Arguments: Namespace(file='benchmark_times_123456_2023-03-12_13-53-24', path='data/seed_123456_id_2023-03-12_13-53-24', seed=123456, procs=8, threads=16)
+{
+    "rank": 3,
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77177,
+        "seed": 123456
+    },
+    "stats": {
+        "local_spike_counter": 311254,
+        "rate": 0.40329487734833575
+    },
+    "timers": {
+        "time_initialize": 38439197,
+        "time_create": 393701069,
+        "time_connect": 1884026553,
+        "time_calibrate": 2415153928,
+        "time_construct": 4731320747,
+        "time_simulate": 12648808269,
+        "time_total": 17380129016
+    }
+}
+Arguments: Namespace(file='benchmark_times_123456_2023-03-12_13-53-24', path='data/seed_123456_id_2023-03-12_13-53-24', seed=123456, procs=8, threads=16)
+{
+    "rank": 6,
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77177,
+        "seed": 123456
+    },
+    "stats": {
+        "local_spike_counter": 309293,
+        "rate": 0.400753990309197
+    },
+    "timers": {
+        "time_initialize": 56647403,
+        "time_create": 391662774,
+        "time_connect": 1885955028,
+        "time_calibrate": 2415264768,
+        "time_construct": 4749529973,
+        "time_simulate": 12648804249,
+        "time_total": 17398334222
+    }
+}
+Arguments: Namespace(file='benchmark_times_123456_2023-03-12_13-53-24', path='data/seed_123456_id_2023-03-12_13-53-24', seed=123456, procs=8, threads=16)
+{
+    "rank": 1,
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77177,
+        "seed": 123456
+    },
+    "stats": {
+        "local_spike_counter": 318381,
+        "rate": 0.41252940153392564
+    },
+    "timers": {
+        "time_initialize": 9192673,
+        "time_create": 391660044,
+        "time_connect": 1885442397,
+        "time_calibrate": 2415777119,
+        "time_construct": 4702072233,
+        "time_simulate": 12648808639,
+        "time_total": 17350880872
+    }
+}
+Arguments: Namespace(file='benchmark_times_123456_2023-03-12_13-53-24', path='data/seed_123456_id_2023-03-12_13-53-24', seed=123456, procs=8, threads=16)
+{
+    "rank": 7,
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77177,
+        "seed": 123456
+    },
+    "stats": {
+        "local_spike_counter": 310819,
+        "rate": 0.40273124355841966
+    },
+    "timers": {
+        "time_initialize": 38323597,
+        "time_create": 394181120,
+        "time_connect": 1883004231,
+        "time_calibrate": 2415701399,
+        "time_construct": 4731210347,
+        "time_simulate": 12648804639,
+        "time_total": 17380014986
+    }
+}
+Arguments: Namespace(file='benchmark_times_123456_2023-03-12_13-53-24', path='data/seed_123456_id_2023-03-12_13-53-24', seed=123456, procs=8, threads=16)
+{
+    "rank": 5,
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77177,
+        "seed": 123456
+    },
+    "stats": {
+        "local_spike_counter": 312758,
+        "rate": 0.4052436249805972
+    },
+    "timers": {
+        "time_initialize": 17346304,
+        "time_create": 392464106,
+        "time_connect": 1885247096,
+        "time_calibrate": 2415174608,
+        "time_construct": 4710232114,
+        "time_simulate": 12648808439,
+        "time_total": 17359040553
+    }
+}
+Arguments: Namespace(file='benchmark_times_123456_2023-03-12_13-53-24', path='data/seed_123456_id_2023-03-12_13-53-24', seed=123456, procs=8, threads=16)
+Data will be written to: data/seed_123456_id_2023-03-12_13-53-24/
+  Directory already existed. Old data will be overwritten.
+
+
+RNG seed: 123456
+Total number of virtual processes: 128
+Creating neuronal populations.
+Creating Poisson generators for background input.
+Connecting neuronal populations recurrently.
+Connecting Poisson generators for background input.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "rank": 0,
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77177,
+        "seed": 123456
+    },
+    "stats": {
+        "local_spike_counter": 315477,
+        "rate": 0.40876666009503787
+    },
+    "timers": {
+        "time_initialize": 14710577,
+        "time_create": 395060463,
+        "time_connect": 1883411091,
+        "time_calibrate": 2414393746,
+        "time_construct": 4707575877,
+        "time_simulate": 12648814289,
+        "time_total": 17356390166
+    }
+}

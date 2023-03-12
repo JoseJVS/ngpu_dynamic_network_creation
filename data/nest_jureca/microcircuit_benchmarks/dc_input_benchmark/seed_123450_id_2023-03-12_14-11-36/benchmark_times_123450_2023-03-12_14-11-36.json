@@ -1,0 +1,208 @@
+{
+    "conf": {
+        "threads": 16,
+        "procs": 8,
+        "num_neurons": 77169,
+        "seed": 123450
+    },
+    "ranks": {
+        "2": {
+            "stats": {
+                "local_spike_counter": 311371,
+                "rate": 0.40348830012198783
+            },
+            "timers": {
+                "time_initialize": 19168966,
+                "time_create": 396760230,
+                "time_connect": 1745576561,
+                "time_calibrate": 2351051692,
+                "time_construct": 4512557449,
+                "time_simulate": 7738555677,
+                "time_total": 12251113126
+            }
+        },
+        "4": {
+            "stats": {
+                "local_spike_counter": 306794,
+                "rate": 0.397557221281446
+            },
+            "timers": {
+                "time_initialize": 19202716,
+                "time_create": 388806926,
+                "time_connect": 1753473745,
+                "time_calibrate": 2351109362,
+                "time_construct": 4512592749,
+                "time_simulate": 7738562197,
+                "time_total": 12251154946
+            }
+        },
+        "5": {
+            "stats": {
+                "local_spike_counter": 305614,
+                "rate": 0.39602812514165153
+            },
+            "timers": {
+                "time_initialize": 19181896,
+                "time_create": 392084166,
+                "time_connect": 1749865734,
+                "time_calibrate": 2351438663,
+                "time_construct": 4512570459,
+                "time_simulate": 7738559497,
+                "time_total": 12251129956
+            }
+        },
+        "6": {
+            "stats": {
+                "local_spike_counter": 308112,
+                "rate": 0.3992651439189453
+            },
+            "timers": {
+                "time_initialize": 19214246,
+                "time_create": 391041663,
+                "time_connect": 1751421759,
+                "time_calibrate": 2350924511,
+                "time_construct": 4512602179,
+                "time_simulate": 7738551937,
+                "time_total": 12251154116
+            }
+        },
+        "1": {
+            "stats": {
+                "local_spike_counter": 311438,
+                "rate": 0.4035751216824677
+            },
+            "timers": {
+                "time_initialize": 19189496,
+                "time_create": 395024674,
+                "time_connect": 1747327007,
+                "time_calibrate": 2351035562,
+                "time_construct": 4512576739,
+                "time_simulate": 7738564947,
+                "time_total": 12251141686
+            }
+        },
+        "0": {
+            "stats": {
+                "local_spike_counter": 305376,
+                "rate": 0.3957197142253201
+            },
+            "timers": {
+                "time_initialize": 19240416,
+                "time_create": 621531907,
+                "time_connect": 1520937475,
+                "time_calibrate": 2350909411,
+                "time_construct": 4512619209,
+                "time_simulate": 7738561577,
+                "time_total": 12251180786
+            }
+        },
+        "7": {
+            "stats": {
+                "local_spike_counter": 304232,
+                "rate": 0.39423726847623125
+            },
+            "timers": {
+                "time_initialize": 19169546,
+                "time_create": 391230293,
+                "time_connect": 1751197779,
+                "time_calibrate": 2350959201,
+                "time_construct": 4512556819,
+                "time_simulate": 7738569467,
+                "time_total": 12251126286
+            }
+        },
+        "3": {
+            "stats": {
+                "local_spike_counter": 310110,
+                "rate": 0.4018542406031058
+            },
+            "timers": {
+                "time_initialize": 19242946,
+                "time_create": 391895335,
+                "time_connect": 1750492567,
+                "time_calibrate": 2350999241,
+                "time_construct": 4512630089,
+                "time_simulate": 7738557997,
+                "time_total": 12251188086
+            }
+        }
+    },
+    "all_values": {
+        "stats": {
+            "local_spike_counter": 2463047,
+            "rate": 3.191725135451155
+        },
+        "timers": {
+            "time_initialize": [
+                19168966,
+                19202716,
+                19181896,
+                19214246,
+                19189496,
+                19240416,
+                19169546,
+                19242946
+            ],
+            "time_create": [
+                396760230,
+                388806926,
+                392084166,
+                391041663,
+                395024674,
+                621531907,
+                391230293,
+                391895335
+            ],
+            "time_connect": [
+                1745576561,
+                1753473745,
+                1749865734,
+                1751421759,
+                1747327007,
+                1520937475,
+                1751197779,
+                1750492567
+            ],
+            "time_calibrate": [
+                2351051692,
+                2351109362,
+                2351438663,
+                2350924511,
+                2351035562,
+                2350909411,
+                2350959201,
+                2350999241
+            ],
+            "time_construct": [
+                4512557449,
+                4512592749,
+                4512570459,
+                4512602179,
+                4512576739,
+                4512619209,
+                4512556819,
+                4512630089
+            ],
+            "time_simulate": [
+                7738555677,
+                7738562197,
+                7738559497,
+                7738551937,
+                7738564947,
+                7738561577,
+                7738569467,
+                7738557997
+            ],
+            "time_total": [
+                12251113126,
+                12251154946,
+                12251129956,
+                12251154116,
+                12251141686,
+                12251180786,
+                12251126286,
+                12251188086
+            ]
+        }
+    }
+}
