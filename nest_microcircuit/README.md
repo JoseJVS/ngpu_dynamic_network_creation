@@ -24,8 +24,8 @@ These files did not change with respect to the source at time of writing:
 
 These files were modified for benchmarking purposes:
  - [network.py](network.py):
-   - Fixed MPI related bug at __setup_nest function (l263): At time of writing, accessing kernel values inside a Python print statement when using multiple MPI processes causes an MPI library crash. For this, the access of kernel values was moved before the print.
-   - Disabled Prepare and Cleanup call from connect function (l98): To properly measure calibration time, Prepare and Cleanup functions were commented.
+   - Disabled Prepare and Cleanup call from connect function [L98](network.py#L98): To properly measure calibration time, Prepare and Cleanup functions were commented: [L126](network.py#L126) and [L127](network.py#L127).
+   - Fixed MPI related bug at __setup_nest function [L263](network.py#L263): At time of writing, accessing kernel values inside a Python print statement when using multiple MPI processes causes an MPI library crash. For this, the access of kernel values was moved before the print: [L276](network.py#L276) and [L277](network.py#L277).
 
 ### Additional files
 
@@ -36,8 +36,8 @@ These files were added for benchmarking purposes:
  - [merge_data.py](merge_data.py): Python script to merge output of multiple MPI processes during a single simulation.
  - gather_data.py: Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - [benchmark.sh](benchmark.sh): Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
-  - This script assumes the system used is equipped with 128 cores. By default the script allocates 8 MPI processes and 16 threads per process for the simulation. This can be changed in l4-l10.
+  - This script assumes the system used is equipped with 128 cores. By default the script allocates 8 MPI processes and 16 threads per process for the simulation. This can be changed in [L4](benchmark.sh#L4)-[L10](benchmark.sh#L10).
   - Additionally this script exploits OpenMP pinning and MPI binding to maximize simulation performance.
-    - OpenMP pinning: l25-l28
-    - MPI binding: l48, handled by SLURM
+    - OpenMP pinning: [L25](benchmark.sh#L25)-[L28](benchmark.sh#L28)
+    - MPI binding: [L48](benchmark.sh#L48), handled by SLURM
  

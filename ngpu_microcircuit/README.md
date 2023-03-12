@@ -20,8 +20,8 @@ These files did not change with respect to the source at time of writing:
 
 These files were modified for benchmarking purposes:
  - [network.py](network.py):
-   - Added get_network_size function to get total number of neurons. (l200)
-   - Disabled Prepare and Cleanup call from connect function (l97): To properly measure calibration time, Prepare and Cleanup functions were commented.
+   - Disabled Prepare and Cleanup call from connect function [L97](network.py#L97): To properly measure calibration time, Prepare and Cleanup functions were commented: [L125](network.py#L125) and [L126](network.py#L126).
+   - Added get_network_size function to get total number of neurons: [L200](network.py#L200).
 
 ### Additional files
 
