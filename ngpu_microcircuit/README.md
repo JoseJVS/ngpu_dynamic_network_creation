@@ -27,7 +27,7 @@ These files were modified for benchmarking purposes:
 
 These files were added for benchmarking purposes:
  - [run_benchmark.py](run_benchmark.py): Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
-  - Added handling of different Nested Loop algorithms passed as argument.
+   - Added handling of different Nested Loop algorithms passed as argument.
  - [gather_data.py](gather_data.py): Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - [benchmark.sh](benchmark.sh): Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
  
