@@ -21,19 +21,19 @@ ylabel_fs = 18
 
 
 # Define paths to data directories
-nest_path = Path("../data/nest_jureca/microcircuit_benchmarks/dc_input_benchmark")
+nest_path = Path("../data/nest_jureca/microcircuit_benchmarks/poi_gen_benchmark")
 
 genn_a100_path = Path("../data/genn_jureca/microcircuit_benchmark")
 genn_v100_path = Path("../data/genn_jusuf/microcircuit_benchmark")
 genn_2080_path = Path("../data/genn_jusuf/microcircuit_benchmark") # TODO update when data is available
 
-ngpu_main_a100_path = Path("../data/nestgpu_jureca/microcircuit_benchmarks/main_dc_input_benchmark")
-ngpu_main_v100_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/main_dc_input_benchmark")
-ngpu_main_2080_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/main_dc_input_benchmark") # TODO update when data is available
+ngpu_main_a100_path = Path("../data/nestgpu_jureca/microcircuit_benchmarks/main_poi_gen_benchmark")
+ngpu_main_v100_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/main_poi_gen_benchmark")
+ngpu_main_2080_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/main_poi_gen_benchmark") # TODO update when data is available
 
-ngpu_conn_a100_path = Path("../data/nestgpu_jureca/microcircuit_benchmarks/conn_dc_input_benchmark")
-ngpu_conn_v100_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/conn_dc_input_benchmark")
-ngpu_conn_2080_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/conn_dc_input_benchmark") # TODO update when data is available
+ngpu_conn_a100_path = Path("../data/nestgpu_jureca/microcircuit_benchmarks/conn_poi_gen_benchmark")
+ngpu_conn_v100_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/conn_poi_gen_benchmark")
+ngpu_conn_2080_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/conn_poi_gen_benchmark") # TODO update when data is available
 
 # Load json benchmark files
 nest_benchmark = json.loads(next(nest_path.glob("benchmark*.json")).read_text())
