@@ -3,7 +3,7 @@
 # Number of MPI processes
 procs=$1
 if [ -z $procs ]; then
-	procs=32
+	procs=8
 fi
 
 # Number of threads per process

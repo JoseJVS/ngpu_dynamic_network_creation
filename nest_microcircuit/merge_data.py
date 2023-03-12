@@ -84,8 +84,6 @@ def get_json_results(path: Path):
 def cleanup(path: Path):
     for p in path.glob("*.json"):
         p.unlink()
-    for p in path.glob("*.dat"):
-        p.unlink()
 
 
 def save_data(results: dict, out: Path):
