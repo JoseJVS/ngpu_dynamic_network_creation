@@ -4,6 +4,10 @@ Taken from https://github.com/nest/nest-simulator/tree/master/pynest/examples/Po
 <br>
 Time of writing: 11.03.2023, last update to model: 01.02.2023
 
+<br>
+
+To reproduce the performance shown in the data for the NEST simulations it is needed to use high-performance computing systems, the systems used for the paper are described in "Hardware and Software" subsection in #INSERT PAPER REF#
+
 ## Contents
 
 ### Original files
@@ -32,4 +36,9 @@ These files were added for benchmarking purposes:
  - merge_data.py: Python script to merge output of multiple MPI processes during a single simulation.
  - gather_data.py: Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - benchmark.sh: Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
+  - This script assumes the system used is equipped with 128 cores. By default the script allocates 8 MPI processes and 16 threads per process for the simulation. This can be changed in l4-l10.
+  - Additionally this script exploits of OpenMP pinning and MPI binding to maximize simulation performance.
+    - OpenMP pinning: l25-l28
+    - MPI binding: l48 and l51
+  - In the systems used for the paper, pinning and binding is handled by SLURM  
  
