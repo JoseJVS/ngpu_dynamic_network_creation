@@ -1,5 +1,5 @@
-Arguments: Namespace(file='benchmark_times_2023-03-07_18-57-42.json', path='../sim_output/benchmark-seed-0', seed=0)
-Seed:  0
+Arguments: Namespace(file='benchmark_times_123450_2023-03-13_12-33-05', path='data/seed_123450_id_2023-03-13_12-33-05', seed=123450)
+Seed:  123450
 Max excitatory delay:4.289262ms , max inhibitory delay:2.144631ms
 Max dendritic delay slots:43
 Creating neuron populations:
@@ -62,8 +62,8 @@ Creating synapse populations:
 	Connection between '23I' and '6I': numConnections=14740, meanWeight=-0.351200, weightSD=0.035120, meanDelay=0.750000, delaySD=0.375000
 	Connection between '4E' and '6I': numConnections=218152, meanWeight=0.087800, weightSD=0.008780, meanDelay=1.500000, delaySD=0.750000
 	Connection between '4I' and '6I': numConnections=5896, meanWeight=-0.351200, weightSD=0.035120, meanDelay=0.750000, delaySD=0.375000
-make: Entering directory '/home/gtiddia/genn/cortical_microcircuit/models/potjans_microcircuit/potjans_microcircuit_CODE'
-make: Leaving directory '/home/gtiddia/genn/cortical_microcircuit/models/potjans_microcircuit/potjans_microcircuit_CODE'
+make: Entering directory '/home/gtiddia/ngpu_dynamic_network_creation/genn_microcircuit/potjans_microcircuit_CODE'
+make: Leaving directory '/home/gtiddia/ngpu_dynamic_network_creation/genn_microcircuit/potjans_microcircuit_CODE'
 	Connection between '5E' and '6I': numConnections=400928, meanWeight=0.087800, weightSD=0.008780, meanDelay=1.500000, delaySD=0.750000
 	Connection between '5I' and '6I': numConnections=23584, meanWeight=-0.351200, weightSD=0.035120, meanDelay=0.750000, delaySD=0.375000
 	Connection between '6E' and '6I': numConnections=2886092, meanWeight=0.087800, weightSD=0.008780, meanDelay=1.500000, delaySD=0.750000
@@ -73,21 +73,23 @@ Building Model
 Loading Model
 Simulating
 {
+    "conf": {
+        "seed": 123450,
+        "num_neurons": 77169
+    },
     "timers": {
-        "time_model_def": 10664443,
-        "time_build": 7060095325,
-        "time_load": 505051012,
-        "time_simulate": 6929150083,
-        "time_total": 14504960863
+        "time_model_def": 10667631,
+        "time_build": 7214967509,
+        "time_load": 497248385,
+        "time_construct_no_build": 507916016,
+        "time_construct": 7722883525,
+        "time_simulate": 6974031112,
+        "time_total": 14696914637
     }
 }
-	Init:66.128990
-	Sparse init:38.391617
-	Neuron simulation:2398.291177
-	Synapse simulation:3579.421217
-	Overall time:6082.233001
+	Init:65.377251
+	Sparse init:38.405186
+	Neuron simulation:2408.702575
+	Synapse simulation:3566.874497
+	Overall time:6079.359508
 swig/python detected a memory leak of type 'CodeGenerator::CUDA::Backend *', no destructor found.
-
-real	0m15,506s
-user	0m29,131s
-sys	0m3,277s
