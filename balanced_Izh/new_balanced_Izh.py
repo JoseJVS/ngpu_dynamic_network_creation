@@ -1,22 +1,42 @@
 import sys
 import ctypes
+import numpy as np
 import nestgpu as ngpu
 from random import randrange
+from time import perf_counter_ns
+from json import dump, dumps
+
+time_start = perf_counter_ns()
 
 if len(sys.argv) != 2:
     print ("Usage: python %s n_neurons" % sys.argv[0])
     quit()
+
+nl_dict = {
+        0: "BlockStep",
+        1: "CumulSum",
+        2: "Simple",
+        3: "ParallelInner",
+        4: "ParallelOuter",
+        5: "Frame1D",
+        6: "Frame2D",
+        7: "Smart1D",
+        8: "Smart2D",
+    }
     
 order = int(sys.argv[1])//5
 
 ngpu.SetTimeResolution(1.0)
+algo = 0
+ngpu.SetNestedLoopAlgo(algo)
 
 recording = True
 plotting = True
 
 print("Building ...")
 
-ngpu.SetRandomSeed(1234) # seed for GPU random numbers
+seed = 1234
+ngpu.SetRandomSeed(seed) # seed for GPU random numbers
 
 sim_time = 10.0 # simulation time in seconds
 
@@ -34,8 +54,10 @@ fact=0.42
 Wex = 0.5*fact
 Win = -3.5*fact
 
-poiss_rate = 50.0
-poiss_weight = 13.6
+poiss_rate = 1160.0
+poiss_weight = 1.5
+
+time_initialize = perf_counter_ns()
 
 # create poisson generator
 pg = ngpu.Create("poisson_generator", n_neurons)
@@ -54,6 +76,8 @@ if recording:
     N_max_spike_times = 100000
     ngpu.ActivateRecSpikeTimes(exc_neuron, N_max_spike_times)
     ngpu.ActivateRecSpikeTimes(inh_neuron, N_max_spike_times)
+
+time_create = perf_counter_ns()
 
 # Excitatory connections
 # connect excitatory neurons to port 0 of all neurons
@@ -79,12 +103,43 @@ pg_syn_dict={"weight": poiss_weight, "delay": {"distribution": "normal_clipped",
 ngpu.Connect(pg[0:NE], exc_neuron, pg_conn_dict, pg_syn_dict)
 ngpu.Connect(pg[NE:n_neurons], inh_neuron, pg_conn_dict, pg_syn_dict)
 
+time_connect = perf_counter_ns()
+
+ngpu.Calibrate()
+
+time_calibrate = perf_counter_ns()
+
 ngpu.Simulate(sim_time*1000.0)
 
+time_simulate = perf_counter_ns()
+
+time_dict = {
+        "time_initialize": time_initialize - time_start,
+        "time_create": time_create - time_initialize,
+        "time_connect": time_connect - time_create,
+        "time_calibrate": time_calibrate - time_connect,
+        "time_construct": time_calibrate - time_start,
+        "time_simulate": time_simulate - time_calibrate,
+        "time_total": time_simulate - time_start,
+        }
+
+conf_dict = {
+    "nested_loop_algo": nl_dict[algo],
+    "num_neurons": n_neurons,
+    "seed": seed,
+}
+
+info_dict = {
+        "conf": conf_dict,
+        "timers": time_dict
+    }
+
+#with file_path.open("w") as f:
+#    dump(info_dict, f, indent=4)
+
+print(dumps(info_dict, indent=4))
 
 if recording:
-    import numpy as np
-
     exc_spike_times = ngpu.GetRecSpikeTimes(exc_neuron)
     inh_spike_times = ngpu.GetRecSpikeTimes(inh_neuron)
     # getting firing rate
