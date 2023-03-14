@@ -50,7 +50,7 @@ inh_params = {"a": 0.1, "b": 0.2, "c": -65.0, "d": 2.0}
 ngpu.SetStatus(exc_neuron, exc_params)
 ngpu.SetStatus(inh_neuron, inh_params)
 
-if recirding:
+if recording:
     N_max_spike_times = 100000
     ngpu.ActivateRecSpikeTimes(exc_neuron, N_max_spike_times)
     ngpu.ActivateRecSpikeTimes(inh_neuron, N_max_spike_times)
