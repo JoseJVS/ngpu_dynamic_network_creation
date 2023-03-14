@@ -11,6 +11,9 @@ order = int(sys.argv[1])//5
 
 ngpu.SetTimeResolution(1.0)
 
+recording = True
+plotting = True
+
 print("Building ...")
 
 ngpu.SetRandomSeed(1234) # seed for GPU random numbers
@@ -47,9 +50,10 @@ inh_params = {"a": 0.1, "b": 0.2, "c": -65.0, "d": 2.0}
 ngpu.SetStatus(exc_neuron, exc_params)
 ngpu.SetStatus(inh_neuron, inh_params)
 
-N_max_spike_times = 100000
-ngpu.ActivateRecSpikeTimes(exc_neuron, N_max_spike_times)
-ngpu.ActivateRecSpikeTimes(inh_neuron, N_max_spike_times)
+if recirding:
+    N_max_spike_times = 100000
+    ngpu.ActivateRecSpikeTimes(exc_neuron, N_max_spike_times)
+    ngpu.ActivateRecSpikeTimes(inh_neuron, N_max_spike_times)
 
 # Excitatory connections
 # connect excitatory neurons to port 0 of all neurons
@@ -78,29 +82,31 @@ ngpu.Connect(pg[NE:n_neurons], inh_neuron, pg_conn_dict, pg_syn_dict)
 ngpu.Simulate(sim_time*1000.0)
 
 
-import numpy as np
+if recording:
+    import numpy as np
 
-exc_spike_times = ngpu.GetRecSpikeTimes(exc_neuron)
-inh_spike_times = ngpu.GetRecSpikeTimes(inh_neuron)
-# getting firing rate
-frE = np.zeros(NE)
-frI = np.zeros(NI)
-for i in range(len(exc_spike_times)):
-    frE[i] = len(exc_spike_times[i])/(sim_time)
-for i in range(len(inh_spike_times)):
-    frI[i] = len(inh_spike_times[i])/(sim_time)
+    exc_spike_times = ngpu.GetRecSpikeTimes(exc_neuron)
+    inh_spike_times = ngpu.GetRecSpikeTimes(inh_neuron)
+    # getting firing rate
+    frE = np.zeros(NE)
+    frI = np.zeros(NI)
+    for i in range(len(exc_spike_times)):
+        frE[i] = len(exc_spike_times[i])/(sim_time)
+    for i in range(len(inh_spike_times)):
+        frI[i] = len(inh_spike_times[i])/(sim_time)
 
-fr = np.concatenate((frE, frI))
+    fr = np.concatenate((frE, frI))
 
-print("Mean firing rate [EXC]: {} +/- {} Hz".format(np.mean(frE), np.std(frE)))
-print("Mean firing rate [INH]: {} +/- {} Hz".format(np.mean(frI), np.std(frI)))
-print("Mean firing rate [TOT]: {} +/- {} Hz".format(np.mean(fr), np.std(fr)))
+    print("Mean firing rate [EXC]: {} +/- {} Hz".format(np.mean(frE), np.std(frE)))
+    print("Mean firing rate [INH]: {} +/- {} Hz".format(np.mean(frI), np.std(frI)))
+    print("Mean firing rate [TOT]: {} +/- {} Hz".format(np.mean(fr), np.std(fr)))
 
-import matplotlib.pyplot as plt
-# raster plot of the spiking activity
-plt.figure()
-for i in range(len(exc_spike_times)):
-    plt.plot(exc_spike_times[i], [i for j in range(len(exc_spike_times[i]))], ".", color="b")
-for i in range(len(inh_spike_times)):
-    plt.plot(inh_spike_times[i], [i+NE for j in range(len(inh_spike_times[i]))], ".", color="r")
-plt.show()
+    if plotting:
+        import matplotlib.pyplot as plt
+        # raster plot of the spiking activity
+        plt.figure()
+        for i in range(len(exc_spike_times)):
+            plt.plot(exc_spike_times[i], [i for j in range(len(exc_spike_times[i]))], ".", color="b")
+        for i in range(len(inh_spike_times)):
+            plt.plot(inh_spike_times[i], [i+NE for j in range(len(inh_spike_times[i]))], ".", color="r")
+        plt.show()
