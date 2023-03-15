@@ -31,7 +31,7 @@ algo = 0
 ngpu.SetNestedLoopAlgo(algo)
 
 recording = True
-plotting = True
+plotting = False
 
 print("Building ...")
 
@@ -60,7 +60,7 @@ poiss_weight = 1.5
 time_initialize = perf_counter_ns()
 
 # create poisson generator
-pg = ngpu.Create("poisson_generator", n_neurons)
+pg = ngpu.Create("poisson_generator")
 ngpu.SetStatus(pg, "rate", poiss_rate)
 
 # Create n_neurons neurons with n_receptor receptor ports
@@ -73,7 +73,7 @@ ngpu.SetStatus(exc_neuron, exc_params)
 ngpu.SetStatus(inh_neuron, inh_params)
 
 if recording:
-    N_max_spike_times = 100000
+    N_max_spike_times = 500
     ngpu.ActivateRecSpikeTimes(exc_neuron, N_max_spike_times)
     ngpu.ActivateRecSpikeTimes(inh_neuron, N_max_spike_times)
 
@@ -97,11 +97,11 @@ ngpu.Connect(inh_neuron, exc_neuron, inh_conn_dict, inh_syn_dict)
 ngpu.Connect(inh_neuron, inh_neuron, inh_conn_dict, inh_syn_dict)
 
 #connect poisson generator to port 0 of all neurons
-pg_conn_dict={"rule": "one_to_one"}
+pg_conn_dict={"rule": "all_to_all"}
 pg_syn_dict={"weight": poiss_weight, "delay": {"distribution": "normal_clipped", "high": 20.0, "low": 1.0, "mu": 10.0, "sigma": 5.0}, "receptor":0}
 
-ngpu.Connect(pg[0:NE], exc_neuron, pg_conn_dict, pg_syn_dict)
-ngpu.Connect(pg[NE:n_neurons], inh_neuron, pg_conn_dict, pg_syn_dict)
+ngpu.Connect(pg, exc_neuron, pg_conn_dict, pg_syn_dict)
+ngpu.Connect(pg, inh_neuron, pg_conn_dict, pg_syn_dict)
 
 time_connect = perf_counter_ns()
 
