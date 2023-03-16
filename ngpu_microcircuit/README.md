@@ -4,6 +4,19 @@ Taken from https://github.com/nest/nest-gpu/tree/main/python/Potjans_2014
 <br>
 Time of writing: 11.03.2023, last update to model: 13.02.2023
 
+## Prerequisites
+
+These scripts were tested with NEST GPU version #INSERT MAIN TAG# and version #INSERT CONN TAG#
+Installation instructions can be found at:
+ - https://nest-gpu.readthedocs.io/en/latest/installation/index.html
+
+<br>
+
+Additionally to run the scripts to post process the data, Python and additional packages are required.
+To run the data post processing scripts we used:
+ * Python 3.8.6
+ * Numpy 1.22
+
 ## Contents
 
 ### Original files
@@ -30,4 +43,13 @@ These files were added for benchmarking purposes:
    - Added handling of different Nested Loop algorithms passed as argument.
  - [gather_data.py](gather_data.py): Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - [benchmark.sh](benchmark.sh): Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
+   - By default, nested loop algorithm used is BlockStep, this can be changed in [L23](benchmark.sh#L23)
  
+## Execution
+
+To run a 10 simulation benchmark using 10 different random generation seeds:
+```shell
+bash benchmark.sh
+```
+
+By default this script runs on local machines, this can be changed to run with SLURM in an interactive session by commenting [L58](benchmark.sh#L58) and uncommenting [L61](benchmark.sh#L61).
