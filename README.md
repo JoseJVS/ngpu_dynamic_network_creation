@@ -61,9 +61,7 @@ Individual instructions for each script are given in the respective model direct
 
 ## TODOS:
 
- - Check file headers
  - rename balanced_izh directory to ngpu_balanced_izh
- - delete balanced_AdEx folder if model not used for paper
- - add balanced_izh/README.md
- - add comments to data handling scripts
+ - delete balanced_* directories if models not used for paper
+ - add balanced_*/README.md
  
