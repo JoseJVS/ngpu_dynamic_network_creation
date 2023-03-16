@@ -1,7 +1,6 @@
 import sys
 import ctypes
 import nestgpu as ngpu
-import numpy as np
 from random import randrange
 
 if len(sys.argv) != 2:
@@ -58,11 +57,7 @@ ngpu.SetStatus(pg, "rate", poiss_rate)
 neuron = ngpu.Create("izhikevich_psc_exp_2s", n_neurons, n_receptors)
 exc_neuron = neuron[0:NE]      # excitatory neurons
 inh_neuron = neuron[NE:n_neurons]   # inhibitory neurons
-
-# activate spike recording
-N_max_spike_times = 100000
-ngpu.ActivateRecSpikeTimes(neuron, N_max_spike_times)
-
+  
 # receptor parameters
 
 delay = 2.0
@@ -92,15 +87,3 @@ pg_syn_dict={"weight": poiss_weight, "delay": poiss_delay, "receptor":0}
 ngpu.Connect(pg, neuron, pg_conn_dict, pg_syn_dict)
 
 ngpu.Simulate(sim_time*1000.0)
-
-spike_times = ngpu.GetRecSpikeTimes(neuron)
-# getting firing rate
-fr = np.zeros(n_neurons)
-for i in range(len(spike_times)):
-    fr[i] = len(spike_times[i])/(sim_time)
-
-print("Mean firing rate: {} +/- {} Hz".format(np.mean(fr), np.std(fr)))
-
-
-
-
