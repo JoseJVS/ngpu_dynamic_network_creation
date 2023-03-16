@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# Number of CPU cores in system
+cores=128
+
 # Number of MPI processes ONLY USED BY SLURM
 procs=1
 
 # Number of threads per process
-threads=$( expr 128 / $procs )
+# Fill the whole system by assigning as many possible threads equally to all MPI processes
+threads=$( expr $cores / $procs )
 
 # Nested loop algorithm
 # 0: BlockStep
@@ -25,7 +29,7 @@ data_path=data
 sim_id=$(date +%F_%H-%M-%S)
 
 # Fix numpy (numexpr) max number of supported threads
-export NUMEXPR_MAX_THREADS=128
+export NUMEXPR_MAX_THREADS=$cores
 
 # Enable OpenMP pinning ONLY USED BY NEST GPU KERNEL FOR NETWORK CREATION
 export OMP_DISPLAY_ENV=VERBOSE
