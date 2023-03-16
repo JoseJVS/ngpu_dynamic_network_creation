@@ -1,4 +1,7 @@
 #!/bin/bash
+# Benchmarking script for executing 10 simulations
+# with different random generation seeds with NEST GPU
+# NEST GPU main requires OpenMP pinning for good performance.
 
 # Number of CPU cores in system
 cores=128

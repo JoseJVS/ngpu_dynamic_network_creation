@@ -1,4 +1,6 @@
 #!/bin/bash
+# Benchmarking script for executing 10 simulations
+# with different random generation seeds with GeNN
 
 # Number of CPU cores in system
 cores=128
