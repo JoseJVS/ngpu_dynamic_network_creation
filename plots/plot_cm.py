@@ -25,15 +25,15 @@ nest_path = Path("../data/nest_jureca/microcircuit_benchmarks/poi_gen_benchmark"
 
 genn_a100_path = Path("../data/genn_jureca/microcircuit_benchmark")
 genn_v100_path = Path("../data/genn_jusuf/microcircuit_benchmark")
-genn_2080_path = Path("../data/genn_jusuf/microcircuit_benchmark") # TODO update when data is available
+genn_2080_path = Path("../data/genn_2080/microcircuit_benchmark")
 
 ngpu_main_a100_path = Path("../data/nestgpu_jureca/microcircuit_benchmarks/main_poi_gen_benchmark")
 ngpu_main_v100_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/main_poi_gen_benchmark")
-ngpu_main_2080_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/main_poi_gen_benchmark") # TODO update when data is available
+ngpu_main_2080_path = Path("../data/nestgpu_2080/microcircuit_benchmarks/main_poi_gen_benchmark")
 
 ngpu_conn_a100_path = Path("../data/nestgpu_jureca/microcircuit_benchmarks/conn_poi_gen_benchmark")
 ngpu_conn_v100_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/conn_poi_gen_benchmark")
-ngpu_conn_2080_path = Path("../data/nestgpu_jusuf/microcircuit_benchmarks/conn_poi_gen_benchmark") # TODO update when data is available
+ngpu_conn_2080_path = Path("../data/nestgpu_2080/microcircuit_benchmarks/conn_poi_gen_benchmark")
 
 # Load json benchmark files
 nest_benchmark = json.loads(next(nest_path.glob("benchmark*.json")).read_text())
@@ -66,9 +66,8 @@ ngpu_conn_v100_benchmark = ngpu_conn_v100_benchmark[next(iter(ngpu_conn_v100_ben
 ngpu_conn_2080_benchmark = ngpu_conn_2080_benchmark[next(iter(ngpu_conn_2080_benchmark.keys()))]["timers"]
 
 simulators=['NEST', 'NEST GPU main', 'NEST GPU conn', 'GeNN']
-# initialize, create, connect
+
 ngpu_colors = ['orange', 'cornflowerblue', 'forestgreen', 'lightgreen']
-# initialize, create, connect, code generation, load
 genn_colors = ['yellow', 'steelblue', 'orangered']
 
 # build time plot with different hardware and simulators
@@ -182,7 +181,7 @@ plt.savefig("cm_net_constr.pdf")
 
 
 #########################################################################################
-plt.figure(2, figsize=(12, 9), dpi=300)
+plt.figure(2, figsize=(12, 6), dpi=300)
 #plt.text(-0.3,75.0,"A", weight="bold", fontsize=ylabel_fs)
 
 import tol_colors

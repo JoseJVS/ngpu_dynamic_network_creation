@@ -1,0 +1,16 @@
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 77169,
+        "seed": 123456
+    },
+    "timers": {
+        "time_initialize": 162146,
+        "time_create": 1887371134,
+        "time_connect": 40769052988,
+        "time_calibrate": 2189725447,
+        "time_construct": 44846311715,
+        "time_simulate": 5621881129,
+        "time_total": 50468192844
+    }
+}
