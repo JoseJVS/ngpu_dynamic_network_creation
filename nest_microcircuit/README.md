@@ -6,7 +6,7 @@ Time of writing: 11.03.2023, last update to model: 01.02.2023
 
 <br>
 
-To reproduce the performance shown in the data for the NEST simulations it is needed to use high-performance computing systems, the systems used for the paper are described in "Hardware and Software" subsection in #INSERT PAPER REF#
+To reproduce the performance shown in the data for the NEST simulations it is needed to use high-performance computing systems, the systems used for the paper are described in the "Hardware and Software" subsection in #INSERT PAPER REF#
 
 ## Prerequisites
 
@@ -25,6 +25,14 @@ To allow NEST to take advantage of its functionalities, exporting the path to th
 ```shell
 export LD_PRELOAD=PATH_TO/libjemalloc.so
 ```
+\[Optional]: This can be set in [L23](benchmark.sh#L23) of [benchmark.sh](benchmark.sh) script.
+
+<br>
+
+Additionally to run the scripts to post process the data, Python and additional packages are required.
+To run the data post processing scripts we used:
+ * Python 3.8.6
+ * Numpy 1.22
 
 ## Contents
 
@@ -52,8 +60,8 @@ These files were added for benchmarking purposes:
     - Added handling of number of threads and processes passed as arguments.
     - Added computing of mean firing rate of neurons using the local_spike_counter kernel attribute.
  - [merge_data.py](merge_data.py): Python script to merge output of multiple MPI processes during a single simulation.
-   - This Python script is meant to be run by the ```benchmark.sh``` script found in each model directory.
-   - To run it individually, examples of local execution are found in each corresponding ```benchmark.sh```.
+    - This Python script is meant to be run by the ```benchmark.sh``` script found in each model directory.
+       - To run it individually, examples of local execution are found in each corresponding ```benchmark.sh```.
  - [gather_data.py](gather_data.py): Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - [benchmark.sh](benchmark.sh): Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
     - This script assumes the system used is equipped with 128 cores. By default the script allocates 8 MPI processes and 16 threads per process for the simulation. This can be changed in [L4](benchmark.sh#L4)-[L10](benchmark.sh#L10).
@@ -61,7 +69,7 @@ These files were added for benchmarking purposes:
        - OpenMP pinning: [L25](benchmark.sh#L25)-[L28](benchmark.sh#L28)
        - MPI binding: [L48](benchmark.sh#L48), handled by SLURM
  
-### Execution
+## Execution
 
 To run a 10 simulation benchmark using 10 different random generation seeds:
 ```shell
