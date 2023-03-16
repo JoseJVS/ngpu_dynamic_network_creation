@@ -9,8 +9,8 @@ For installation instructions on the simulators, see:
  - https://nest-simulator.readthedocs.io/en/v3.3/installation/index.html
  - https://genn-team.github.io/genn/documentation/4/html/d8/d99/Installation.html
 
-Additionally to run the scripts to post process the data and generate plots, Python, Numpy and Matplotlib are required.
-The data post processing was tested with:
+Additionally to run the scripts to post process the data and generate plots, Python and additional packages are required.
+To run the data post processing scripts we used:
  * Python 3.8.6
  * Numpy 1.22
  * Matplotlib 3.5
@@ -22,9 +22,9 @@ The [data](data/) directory contains all of the generated data used in the paper
 Simulation scripts to generate new datasets are found in [balanced_izh](balanced_izh/), [ngpu_microcircuit](ngpu_microcircuit/), [nest_microcircuit](nest_microcircuit/), [genn_microcircuit](genn_microcirctui/).
 
 Simulation scripts directories prepended by:
- - ngpu_: are meant to be run with NEST GPU
- - nest_: are meant to be run with NEST
- - genn_: are meant to be run with GeNN
+ - ngpu_: are meant to be run with NEST GPU.
+ - nest_: are meant to be run with NEST.
+ - genn_: are meant to be run with GeNN.
 
  <br>
 
@@ -43,7 +43,7 @@ In particular:
  - ```gather_data.py```: Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - ```benchmark.sh```: Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
 
-If particular modifications to model scripts were needed, they were reported in individual README.md files inside the model directories.
+Individual instructions for each script are given in the respective model directories.
 
 
 ## TODOS:
