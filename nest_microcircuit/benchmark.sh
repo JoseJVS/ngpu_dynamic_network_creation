@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Number of CPU cores in system
+cores=128
+
 # Number of MPI processes
 procs=$1
 if [ -z $procs ]; then
@@ -7,7 +10,8 @@ if [ -z $procs ]; then
 fi
 
 # Number of threads per process
-threads=$( expr 128 / $procs )
+# Fill the whole system by assigning as many possible threads equally to all MPI processes
+threads=$( expr $cores / $procs )
 
 # Top of output files hierarchy
 data_path=data
@@ -19,7 +23,7 @@ sim_id=$(date +%F_%H-%M-%S)
 # export LD_PRELOAD=...
 
 # Fix numpy (numexpr) max number of supported threads
-export NUMEXPR_MAX_THREADS=128
+export NUMEXPR_MAX_THREADS=$cores
 
 # Enable OpenMP pinning
 export OMP_DISPLAY_ENV=VERBOSE

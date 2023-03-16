@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# Number of CPU cores in system
+cores=128
+
 # Number of MPI processes ONLY USED BY SLURM
 procs=1
 
-# Number of threads per process ONLY USED BY SLURM
-threads=$( expr 128 / $procs )
+# Number of threads per process
+# Fill the whole system by assigning as many possible threads equally to all MPI processes
+threads=$( expr $cores / $procs )
 
 # Top of output files hierarchy
 data_path=data
