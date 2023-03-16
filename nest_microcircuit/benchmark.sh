@@ -1,4 +1,7 @@
 #!/bin/bash
+# Benchmarking script for executing 10 simulations
+# with different random generation seeds with NEST
+# NEST requires OpenMP pinning and MPI binding for good performance.
 
 # Number of CPU cores in system
 cores=128
@@ -47,6 +50,9 @@ for seed in {0..9}; do
 		echo "ERROR: Could not create run directory"
 		exit 1
 	fi
+
+	# Run locally, using MPI process pinning to each L3cache partition, placed as distant as possible NEEDS TESTING
+	# mpirun -n $procs --bind-to L3cache --map-by distance --report-bindings python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --procs=$procs --threads=$threads 2> $data_path/run_benchmark_$run_id.err 1> $data_path/run_benchmark_$run_id.out
 
 	# Run with slurm, and let it handle the pinning
 	srun --ntasks-per-node=$procs --cpus-per-task=$threads --threads-per-core=1 --cpu-bind=verbose,rank --error=$data_path/run_benchmark_$run_id.err --output=$data_path/run_benchmark_$run_id.out python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --procs=$procs --threads=$threads
