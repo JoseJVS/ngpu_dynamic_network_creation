@@ -54,7 +54,10 @@ time_start = perf_counter_ns()
 order = args.neurons//5
 # set time resolution and NestedLoop algorithm
 ngpu.SetTimeResolution(1.0)
-ngpu.SetNestedLoopAlgo(args.algo)
+if hasattr(ngpu, "SetNestedLoopAlgo"):
+    ngpu.SetNestedLoopAlgo(args.algo)
+else:
+    print("Cannot set nested loop algorithm in NEST GPU version < 2.0")
 # seed for GPU random numbers
 ngpu.SetRandomSeed(args.seed)
 

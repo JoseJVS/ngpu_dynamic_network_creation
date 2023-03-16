@@ -34,7 +34,7 @@ export OMP_PROC_BIND=TRUE
 export OMP_NUM_THREADS=$threads
 
 # For seeds 123450 123451 123452 123453...123459
-for neur in 1000 10000 100000; do
+for neur in 1000 10000 100000 1000000; do
     for seed in {0..9}; do
         seed=12345$seed
 
