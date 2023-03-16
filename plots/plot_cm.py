@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 #
-# run_benchmark.py
+# plot_cm.py
 
 """
 
 Plotting instructions for cortical microcircuit data.
 This script assumes that the data used was generated
-by the benchmark.sh script in each model directory.
+by the benchmark.sh script for each model in the repository.
 
 """
 
@@ -15,8 +15,13 @@ import json
 
 from pathlib import Path
 
+# X axis font size
 tick_fs = 15
+
+# Legend font size
 legend_fs = 16
+
+# Y axis font size and A & B font size
 ylabel_fs = 18
 
 
@@ -243,6 +248,3 @@ plt.legend(fontsize=legend_fs, framealpha=1.0)
 plt.tight_layout()
 
 plt.savefig("cm_tot.pdf")
-
-
-
