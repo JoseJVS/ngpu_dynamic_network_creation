@@ -36,6 +36,7 @@ from stimulus_params import stim_dict
 from network_params import net_dict
 from sim_params import sim_dict
 import network
+import nestgpu as ngpu
 
 import numpy as np
 from time import perf_counter_ns
@@ -95,13 +96,18 @@ sim_dict.update({
 net_dict.update({
     'N_scaling': 1.,
     'K_scaling': 1.,
-    'poisson_input': False,
+    'poisson_input': True,
     'V0_type': 'optimized'})
 
 time_start = perf_counter_ns()
 
 net = network.Network(sim_dict, net_dict, stim_dict)
-net.set_algo(args.algo)
+
+if hasattr(ngpu, "SetNestedLoopAlgo"):
+    ngpu.SetNestedLoopAlgo(args.algo)
+else:
+    print("Cannot set nested loop algorithm in NEST GPU version < 2.0")
+
 time_initialize = perf_counter_ns()
 
 net.create()
