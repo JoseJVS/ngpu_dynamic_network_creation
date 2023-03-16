@@ -2,6 +2,10 @@
 # Benchmarking script for executing 10 simulations
 # with different random generation seeds with NEST
 # NEST requires OpenMP pinning and MPI binding for good performance.
+# execute with:
+#	bash benchmark.sh [procs]
+#		with procs and optional integer argument representing number of MPI processes
+#			defaults to 8
 
 # Number of CPU cores in system
 cores=128
