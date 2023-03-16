@@ -48,6 +48,7 @@ In particular:
  - ```benchmark.sh```: Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
    - Can be used to run locally or through SLURM with an interactive session.
      - By default, it is set to run locally. To change this, uncomment respective line execution line in script. More information can be found in the READMEs of each model directory.
+     - SLURM executions assume a system equipped with 128, this can be changed through ```cores``` variable at the beginning of each script.
 
 Individual instructions for each script are given in the respective model directories.
 
