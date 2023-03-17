@@ -1,6 +1,9 @@
 # NEST GPU Dynamic Network Creation
 
 This repository contains the data and scripts used for the #INSERT PAPER REF#.
+<br>
+If you want to cite this, use:
+#INSERT PAPER REF#
 
 ## Requirements
 To run the simulations, NEST GPU version #INSERT MAIN TAG# and version #INSERT CONN TAG#, NEST version 3.3, and GeNN version 4.8.0 are required.
@@ -58,6 +61,16 @@ In particular:
 
 Individual instructions for each script are given in the respective model directories.
 
+
+## Contact
+
+Gianmarco Tiddia, Department of Physics, University of Cagliary, Italy, Istituto Nazionale di Fisica Nucleare, Sezione di Cagliari, Italy, gianmarco.tiddia@ca.infn.it
+<br>
+Jose Villamar, Institute of Neuroscience and Medicine (INM-6), Institute for Advanced Simulation (IAS-6), JARA-Institute Brain Structure-Function Relationships (INM-10), Jülich Research Centre, Jülich, Germany, j.villamar@fz-juelich.de
+
+
+## License
+GPL 3.0 [license](LICENSE)
 
 ## TODOS:
 
