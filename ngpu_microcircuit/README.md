@@ -44,6 +44,19 @@ These files were added for benchmarking purposes:
  - [gather_data.py](gather_data.py): Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - [benchmark.sh](benchmark.sh): Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
    - By default, nested loop algorithm used is BlockStep, this can be changed in [L23](benchmark.sh#L23)
+ - [run_recording.py](run_recording.py): Python script based on the original simulation script of the model with additional adaptations for multiple recording sessions, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
+   - This Python script is meant to be run by the ```recording.sh``` script found in this directory.
+     - To run it individually, examples of local execution and SLURM execution are found in ```recording.sh```.
+   - In this script:
+     - Spike recording is enabled.
+     - Poisson generators are enabled.
+     - Optimized membrane potentials are enabled.
+     - Presimulation runs for 500ms.
+     - Simulation runs for 10s.
+- [recording.sh](recording.sh): Bash script to automatically run the model while recording spikes using 10 different random generation seeds and collect the data.
+   - Can be used to run locally or through SLURM with an interactive session.
+     - By default, it is set to run locally. To change this, uncomment respective line execution line in script. More information can be found in the READMEs of each model directory.
+     - SLURM executions assume a system equipped with 128, this can be changed through ```cores``` variable at the beginning of each script.
  
 ## Execution
 
@@ -53,3 +66,10 @@ bash benchmark.sh
 ```
 
 By default this script runs on local machines, this can be changed to run with SLURM in an interactive session by commenting [L58](benchmark.sh#L58) and uncommenting [L61](benchmark.sh#L61).
+
+To run 10 simulations with recordings using 10 different random generation seeds:
+```shell
+bash recording.sh
+```
+
+By default this script runs on local machines, this can be changed to run with SLURM in an interactive session by commenting [L58](recording.sh#L58) and uncommenting [L61](recording.sh#L61).
