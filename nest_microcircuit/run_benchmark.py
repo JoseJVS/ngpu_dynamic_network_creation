@@ -1,6 +1,17 @@
 # -*- coding: utf-8 -*-
 #
 # run_benchmark.py
+# execute with:
+#	python3 run_benchmark.py FILE [--path=PATH] [--seed=SEED] [--threads=THREADS]
+#		with FILE the name of the file to output the JSON results
+#			when using multiple MPI processes, on file for each will be generated
+#			and the rank will be added as a suffix to the FILE name.
+#		with PATH an optional argument to the path to the directory
+#		    where data must be output. Defaults to "$PWD/data".
+#		with SEED an optional integer argument for the simulation seed.
+#			Defaults to 12345
+#		with THREADS an optional integer argument for the number of threads per MPI process to be used.
+#			Defaults to 16.
 
 """PyNEST Microcircuit: Run Benchmark Simulation
 --------------------------------------------------
@@ -31,7 +42,6 @@ parser = ArgumentParser()
 parser.add_argument("file", type=str)
 parser.add_argument("--path", type=str, default=None)
 parser.add_argument("--seed", type=int, default=12345)
-parser.add_argument("--procs", type=int, default=8)
 parser.add_argument("--threads", type=int, default=16)
 args = parser.parse_args()
 
@@ -121,12 +131,12 @@ stats_dict = {
 
 if args.threads != nest.GetKernelStatus('local_num_threads'):
     print("WARNING: Thread number mismatch")
-if args.procs != nest.NumProcesses():
-    print("WARNING: Process number mismatch")
+
+nprocs = nest.NumProcesses()
 
 conf_dict = {
     "threads": args.threads,
-    "procs": args.procs,
+    "procs": nprocs,
     "num_neurons": num_neurons,
     "seed": args.seed,
 }
