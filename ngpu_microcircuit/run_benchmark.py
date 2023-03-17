@@ -1,6 +1,27 @@
 # -*- coding: utf-8 -*-
 #
 # run_benchmark.py
+# execute with:
+#	python3 run_benchmark.py FILE [--path=PATH] [--seed=SEED] [--algo=ALGO]
+#		with FILE the name of the file to output the JSON results
+#			when using multiple MPI processes, on file for each will be generated
+#			and the rank will be added as a suffix to the FILE name.
+#		with PATH an optional argument to the path to the directory
+#		    where data must be output. Defaults to "$PWD/data".
+#		with SEED an optional integer argument for the simulation seed.
+#			Defaults to 12345
+#		with ALGO an optional integer argument for the number nested loop algorithm to be used.
+#			Defaults to 0.
+#           Avaiable nested loop algorithms:
+#           0: BlockStep
+#           1: CumulSum
+#           2: Simple
+#           3: ParallelInner
+#           4: ParallelOuter
+#           5: Frame1D
+#           6: Frame2D
+#           7: Smart1D
+#           8: Smart2D
 
 """PyNEST Microcircuit: Run Benchmark Simulation
 --------------------------------------------------

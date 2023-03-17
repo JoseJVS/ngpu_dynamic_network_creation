@@ -3,6 +3,16 @@
 # run_benchmark.py
 #
 # ADAPTED FROM: https://github.com/BrainsOnBoard/pygenn_paper/blob/master/models/potjans_microcircuit/potjans_microcircuit_pygenn.py
+#
+# execute with:
+#	python3 run_benchmark.py FILE [--path=PATH] [--seed=SEED]
+#		with FILE the name of the file to output the JSON results
+#			when using multiple MPI processes, on file for each will be generated
+#			and the rank will be added as a suffix to the FILE name.
+#		with PATH an optional argument to the path to the directory
+#		    where data must be output. Defaults to "$PWD/data".
+#		with SEED an optional integer argument for the simulation seed.
+#			Defaults to 12345
 
 """PyGeNN Microcircuit: Run Benchmark Simulation
 --------------------------------------------------
