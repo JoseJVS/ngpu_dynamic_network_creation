@@ -23,7 +23,7 @@
 #           7: Smart1D
 #           8: Smart2D
 
-"""PyNEST Microcircuit: Run Benchmark Simulation
+"""
 --------------------------------------------------
 
 This is an example script for running the microcircuit model.
