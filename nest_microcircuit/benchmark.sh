@@ -59,7 +59,7 @@ for seed in {0..9}; do
 	# mpirun -n $procs --bind-to L3cache --map-by distance --report-bindings python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --procs=$procs --threads=$threads 2> $data_path/run_benchmark_$run_id.err 1> $data_path/run_benchmark_$run_id.out
 
 	# Run with slurm, and let it handle the pinning
-	srun --ntasks-per-node=$procs --cpus-per-task=$threads --threads-per-core=1 --cpu-bind=verbose,rank --error=$data_path/run_benchmark_$run_id.err --output=$data_path/run_benchmark_$run_id.out python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --procs=$procs --threads=$threads
+	srun --ntasks-per-node=$procs --cpus-per-task=$threads --threads-per-core=1 --cpu-bind=verbose,rank --error=$data_path/run_benchmark_$run_id.err --output=$data_path/run_benchmark_$run_id.out python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --threads=$threads
 
 	# Merge json output of each MPI process into one json file and delete per rank files
 	python3 merge_data.py $run_path --out=$run_path/benchmark_times_$run_id.json --cleanup
