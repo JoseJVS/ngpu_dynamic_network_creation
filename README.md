@@ -22,7 +22,7 @@ To run the data post processing scripts and plotting scripts the following softw
 ## Contents
 The [data](data/) directory contains all of the generated data used in the paper and the [plots](plots/) directory contains the scripts to generate the plots in the paper.
 
-Simulation scripts to generate new datasets are found in [balanced_izh](balanced_izh/), [ngpu_microcircuit](ngpu_microcircuit/), [nest_microcircuit](nest_microcircuit/), [genn_microcircuit](genn_microcirctui/).
+Simulation scripts to generate new datasets are found in [ngpu_microcircuit](ngpu_microcircuit/), [nest_microcircuit](nest_microcircuit/), [genn_microcircuit](genn_microcirctui/).
 
 Simulation scripts directories prepended by:
  - ngpu_: are meant to be run with NEST GPU.
@@ -36,7 +36,6 @@ Simulation scripts directories prepended by:
     - NEST GPU microcircuit taken from: https://github.com/nest/nest-gpu/tree/main/python/Potjans_2014
     - NEST microcircuit taken from: https://github.com/nest/nest-simulator/tree/master/pynest/examples/Potjans_2014
     - GeNN microcircuit taken from: https://github.com/BrainsOnBoard/pygenn_paper
-  - Balanced random network with STDP synapses and Izhikevich neurons for NEST GPU
 
 <br>
 
@@ -71,10 +70,4 @@ Jose Villamar, Institute of Neuroscience and Medicine (INM-6), Institute for Adv
 
 ## License
 GPL 3.0 [license](LICENSE)
-
-## TODOS:
-
- - rename balanced_izh directory to ngpu_balanced_izh
- - delete balanced_* directories if models not used for paper
- - add balanced_*/README.md
  
