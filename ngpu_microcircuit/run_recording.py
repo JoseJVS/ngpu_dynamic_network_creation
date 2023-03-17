@@ -1,28 +1,30 @@
+# -*- coding: utf-8 -*-
 #
-#  run_microcircuit.py
-#
-#  This file is part of NEST GPU.
-#
-#  Copyright (C) 2021 The NEST Initiative
-#
-#  NEST GPU is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation, either version 2 of the License, or
-#  (at your option) any later version.
-#
-#  NEST GPU is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with NEST GPU. If not, see <http://www.gnu.org/licenses/>.
-#
-#
-#
-#
-"""PyNEST Microcircuit: Run Simulation
------------------------------------------
+# run_recording.py
+# execute with:
+#	python3 run_recording.py FILE [--path=PATH] [--seed=SEED] [--algo=ALGO]
+#		with FILE the name of the file to output the JSON results
+#			when using multiple MPI processes, on file for each will be generated
+#			and the rank will be added as a suffix to the FILE name.
+#		with PATH an optional argument to the path to the directory
+#		    where data must be output. Defaults to "$PWD/data".
+#		with SEED an optional integer argument for the simulation seed.
+#			Defaults to 12345
+#		with ALGO an optional integer argument for the number nested loop algorithm to be used.
+#			Defaults to 0.
+#           Avaiable nested loop algorithms:
+#           0: BlockStep
+#           1: CumulSum
+#           2: Simple
+#           3: ParallelInner
+#           4: ParallelOuter
+#           5: Frame1D
+#           6: Frame2D
+#           7: Smart1D
+#           8: Smart2D
+
+"""
+--------------------------------------------------
 
 This is an example script for running the microcircuit model and generating
 basic plots of the network activity.
