@@ -56,7 +56,7 @@ for seed in {0..9}; do
 	fi
 
 	# Run locally, using MPI process pinning to each L3cache partition, placed as distant as possible NEEDS TESTING
-	# mpirun -n $procs --bind-to L3cache --map-by distance --report-bindings python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --procs=$procs --threads=$threads 2> $data_path/run_benchmark_$run_id.err 1> $data_path/run_benchmark_$run_id.out
+	# MPIEXECUTABLE NUMPROCESSES $procs BINDING_STRATEGY python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --procs=$procs --threads=$threads 2> $data_path/run_benchmark_$run_id.err 1> $data_path/run_benchmark_$run_id.out
 
 	# Run with slurm, and let it handle the pinning
 	srun --ntasks-per-node=$procs --cpus-per-task=$threads --threads-per-core=1 --cpu-bind=verbose,rank --error=$data_path/run_benchmark_$run_id.err --output=$data_path/run_benchmark_$run_id.out python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --threads=$threads

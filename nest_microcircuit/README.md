@@ -76,4 +76,5 @@ To run a 10 simulation benchmark using 10 different random generation seeds:
 bash benchmark.sh
 ```
 
-By default this script runs on local machines, this can be changed to run with SLURM in an interactive session by commenting [L52](benchmark.sh#L52) and uncommenting [L55](benchmark.sh#L55).
+By default this script runs with SLURM in an interactive session, this can be changed to run locally by commenting [L62](benchmark.sh#L62) and uncommenting [L59](benchmark.sh#L59).
+Additionally setting the specific MPI executor (e.g. mpirun, mpiexec), the number of processes argument (e.g. -n, -np) and the MPI process binding is necessary.
