@@ -1,0 +1,71 @@
+Calibrating ...
+Simulating ...
+Neural activity simulation time: 0.100 ms
+
+  SpikeBufferUpdate_time: 0.00134796
+  poisson_generator_time: 9.09931e-08
+  neuron_Update_time: 1.7155e-05
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 3.54201e-06
+  SpikeReset_time: 3.14e-06
+  ExternalSpikeReset_time: 0
+Building time: 47.9958
+Simulation time: 0.00144062
+Simulating ...
+Neural activity simulation time: 10000.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(file='benchmark_times_123458_2023-03-17_14-18-17', path='data/seed_123458_id_2023-03-17_14-18-17', seed=123458, algo=0)
+Data will be written to: data/seed_123458_id_2023-03-17_14-18-17/
+  Directory already existed. Old data will be overwritten.
+
+DC input compensates for missing Poisson input.
+
+
+Cannot set nested loop algorithm in NEST GPU version < 2.0
+Creating neuronal populations.
+Connecting neuronal populations recurrently.
+Simulating 0.1 ms.
+Simulating 10000.0 ms.
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 77169,
+        "seed": 123458
+    },
+    "timers": {
+        "time_initialize": 183547,
+        "time_create": 1758864287,
+        "time_connect": 43951385398,
+        "time_calibrate": 2169513407,
+        "time_construct": 47879946639,
+        "time_simulate": 3948132239,
+        "time_total": 51828078878
+    }
+}
+
+  SpikeBufferUpdate_time: 0.154696
+  poisson_generator_time: 0.00239446
+  neuron_Update_time: 0.481473
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0.168029
+  GetSpike_time: 0.161323
+  SpikeReset_time: 0.155552
+  ExternalSpikeReset_time: 0
+Building time: 47.9958
+Simulation time: 3.94964
