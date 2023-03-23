@@ -1,0 +1,15 @@
+{
+    "conf": {
+        "num_neurons": 1000,
+        "seed": 12345
+    },
+    "timers": {
+        "time_initialize": 191207,
+        "time_create": 11823157,
+        "time_connect": 120428264,
+        "time_calibrate": 10590336,
+        "time_construct": 143032964,
+        "time_simulate": 132178616797,
+        "time_total": 132321649761
+    }
+}
