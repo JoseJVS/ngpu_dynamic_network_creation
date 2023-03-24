@@ -82,6 +82,9 @@ conn_dict={"rule": args.connectivity}
 syn_dict={"weight": w, "delay": d}
 ngpu.Connect(neuron_pop1, neuron_pop2, conn_dict, syn_dict)
 ngpu.Connect(neuron_pop2, neuron_pop1, conn_dict, syn_dict)
+# recurrent connections
+ngpu.Connect(neuron_pop1, neuron_pop1, conn_dict, syn_dict)
+ngpu.Connect(neuron_pop2, neuron_pop2, conn_dict, syn_dict)
 
 time_connect = perf_counter_ns()
 
