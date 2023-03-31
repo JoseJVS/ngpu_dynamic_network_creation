@@ -56,10 +56,10 @@ time_start = perf_counter_ns()
 sim = carl.CARLsim("TwoPopulationBenchmark", carl.GPU_MODE, carl.USER, 0, args.seed)
 
 g1 = sim.createGroup("pop1", args.pop_size, carl.EXCITATORY_NEURON, 0, carl.GPU_CORES)
-sim.setNeuronParameters(grpId=g1, izh_a=0.0, izh_b=0.0, izh_c=0.0, izh_d=0.0)
+sim.setNeuronParameters(grpId=g1, izh_a=0.02, izh_b=0.2, izh_c=-65.0, izh_d=8.0)
 
 g2 = sim.createGroup("pop2", args.pop_size, carl.EXCITATORY_NEURON, 0, carl.GPU_CORES)
-sim.setNeuronParameters(grpId=g2, izh_a=0.0, izh_b=0.0, izh_c=0.0, izh_d=0.0)
+sim.setNeuronParameters(grpId=g2, izh_a=0.02, izh_b=0.2, izh_c=-65.0, izh_d=8.0)
 
 sim.connect(g1, g2, args.conn_routine, carl.RangeWeight(1.0), 1.0, carl.RangeDelay(1), carl.RadiusRF(-1), carl.SYN_FIXED)
 sim.connect(g2, g1, args.conn_routine, carl.RangeWeight(1.0), 1.0, carl.RangeDelay(1), carl.RadiusRF(-1), carl.SYN_FIXED)

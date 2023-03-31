@@ -50,9 +50,9 @@ int main(int argc, char* argv[]) {
 
 	// configure the network
 	int g1 = sim.createGroup("pop1", pop_size, EXCITATORY_NEURON, 0, GPU_CORES);
-	sim.setNeuronParameters(g1, 0.0f, 0.0f, 0.0f, 0.0f); // RS
+	sim.setNeuronParameters(g1, 0.02f, 0.2f, -65.0f, 8.0f); // RS
 	int g2 = sim.createGroup("pop2", pop_size, EXCITATORY_NEURON, 0, GPU_CORES);
-	sim.setNeuronParameters(g2, 0.0f, 0.0f, 0.0f, 0.0f); // RS
+	sim.setNeuronParameters(g2, 0.02f, 0.2f, -65.0f, 8.0f); // RS
 
 	sim.connect(g1, g2, conn_type, RangeWeight(1.0f), 1.0f, RangeDelay(1), RadiusRF(-1), SYN_FIXED);
 	sim.connect(g2, g1, conn_type, RangeWeight(1.0f), 1.0f, RangeDelay(1), RadiusRF(-1), SYN_FIXED);

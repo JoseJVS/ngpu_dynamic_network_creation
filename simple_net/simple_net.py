@@ -54,8 +54,8 @@ else:
 # seed for GPU random numbers
 ngpu.SetRandomSeed(args.seed)
 
-N1 = args.neurons//2       # number of excitatory neurons
-N2 = args.neurons//2       # number of inhibitory neurons
+N1 = args.neurons       # number of excitatory neurons
+N2 = args.neurons       # number of inhibitory neurons
 
 # synaptic weight
 w = 1.0
