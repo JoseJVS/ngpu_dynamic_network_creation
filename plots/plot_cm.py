@@ -107,7 +107,7 @@ ngpu_conn_2080_benchmark_dc = ngpu_conn_2080_benchmark_dc[next(iter(ngpu_conn_20
 ngpu_conn_4090_benchmark_dc = ngpu_conn_4090_benchmark_dc[next(iter(ngpu_conn_4090_benchmark_dc.keys()))]["timers"]
 
 
-simulators=['NEST', 'NEST GPU main', 'NEST GPU conn', 'GeNN']
+simulators=['NEST', 'NEST GPU offboard', 'NEST GPU onboard', 'GeNN']
 
 ngpu_colors = ['orange', 'cornflowerblue', 'forestgreen', 'lightgreen']
 genn_colors = ['yellow', 'steelblue', 'orangered']
@@ -153,7 +153,7 @@ for i in range(len(genn_data)):
     plt.bar(x=genn_pos[i], height=genn_data[i]["time_build"]["mean"], width=0.2, bottom=genn_data[i]["time_model_def"]["mean"]+genn_data[i]["time_load"]["mean"], color = genn_colors[2])
     plt.bar(x=genn_pos[i], height=genn_data[i]["time_build"]["mean"], yerr=genn_data[i]["time_construct"]["std"], width=0.2, bottom=genn_data[i]["time_model_def"]["mean"]+genn_data[i]["time_load"]["mean"], color = "none", capsize=5, error_kw={"elinewidth": 2.25})
 
-plt.xticks(ticks=nest_pos + ngpu_main_pos + [1.65] + ngpu_conn_pos + [2.95] + genn_pos + [4.25], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU main", "V100", "A100", "2080Ti", "4090", "\nNEST GPU conn", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
+plt.xticks(ticks=nest_pos + ngpu_main_pos + [1.65] + ngpu_conn_pos + [2.95] + genn_pos + [4.25], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU offboard", "V100", "A100", "2080Ti", "4090", "\nNEST GPU onboard", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
 plt.ylim(1e-4,1e2)
 plt.yscale('log')
 #plt.ylim(0,75)
@@ -208,7 +208,7 @@ for i in range(len(genn_data)):
         plt.bar(x=genn_pos[i], height=genn_data[i]["time_build"]["mean"], width=0.2, bottom=genn_data[i]["time_model_def"]["mean"]+genn_data[i]["time_load"]["mean"], color = genn_colors[2])
         plt.bar(x=genn_pos[i], height=genn_data[i]["time_build"]["mean"], yerr=genn_data[i]["time_construct"]["std"], width=0.2, bottom=genn_data[i]["time_model_def"]["mean"]+genn_data[i]["time_load"]["mean"], color = "none", capsize=5, error_kw={"elinewidth": 2.25})
 
-plt.xticks(ticks=nest_pos + ngpu_main_pos + [1.65] + ngpu_conn_pos + [2.95] + genn_pos + [4.25], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU main", "V100", "A100", "2080Ti", "4090", "\nNEST GPU conn", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
+plt.xticks(ticks=nest_pos + ngpu_main_pos + [1.65] + ngpu_conn_pos + [2.95] + genn_pos + [4.25], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU offboard", "V100", "A100", "2080Ti", "4090", "\nNEST GPU onboard", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
 plt.ylim(0,75)
 plt.tick_params(labelsize=tick_fs)
 plt.tick_params(axis="x", length=0)
@@ -230,7 +230,7 @@ import tol_colors
 light = tol_colors.tol_cset('light')
 # same colors used from beNNch 
 total_time_colors = [light.light_cyan , light.pink, light.light_blue]
-xax = ['NEST', 'NEST GPU main', 'NEST GPU conn', 'GeNN']
+xax = ['NEST', 'NEST GPU offboard', 'NEST GPU onboard', 'GeNN']
 
 
 genn_pos_L = [3.75, 4.05, 4.35, 4.65]
@@ -279,7 +279,7 @@ plt.ylim(0,75)
 plt.grid(axis='y', which='major', alpha=0.75)
 plt.grid(axis='y', which='minor', linestyle='--', alpha=0.5)
 plt.tick_params(axis="x", length=0)
-plt.xticks(ticks=nest_pos + ngpu_main_pos + [1.65] + ngpu_conn_pos + [2.95] + genn_pos + [4.25], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU main", "V100", "A100", "2080Ti", "4090", "\nNEST GPU conn", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
+plt.xticks(ticks=nest_pos + ngpu_main_pos + [1.65] + ngpu_conn_pos + [2.95] + genn_pos + [4.25], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU offboard", "V100", "A100", "2080Ti", "4090", "\nNEST GPU onboard", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
 plt.yticks(fontsize=tick_fs)
 plt.legend(fontsize=legend_fs, framealpha=1.0)
 
@@ -298,7 +298,7 @@ vibrant = tol_colors.tol_cset('vibrant')
 total_time_colors = [med_constr.light_red, med_constr.dark_red, vibrant.magenta]
 # same colors used from beNNch 
 #total_time_colors = [light.light_cyan , light.pink, light.light_blue]
-xax = ['NEST', 'NEST GPU main', 'NEST GPU conn', 'GeNN']
+xax = ['NEST', 'NEST GPU offboard', 'NEST GPU onboard', 'GeNN']
 
 # simulation time [s]
 sim_time = 10.0
@@ -357,7 +357,7 @@ plt.ylim(0,1.4)
 plt.grid(axis='y', which='major', alpha=0.75)
 plt.grid(axis='y', which='minor', linestyle='--', alpha=0.5)
 plt.tick_params(axis="x", length=0)
-plt.xticks(ticks=nest_pos + ngpu_main_pos + [1.65] + ngpu_conn_pos + [2.95] + genn_pos + [4.25], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU main", "V100", "A100", "2080Ti", "4090", "\nNEST GPU conn", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
+plt.xticks(ticks=nest_pos + ngpu_main_pos + [1.65] + ngpu_conn_pos + [2.95] + genn_pos + [4.25], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU offboard", "V100", "A100", "2080Ti", "4090", "\nNEST GPU onboard", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
 plt.yticks(fontsize=tick_fs)
 plt.legend(fontsize=legend_fs, framealpha=1.0)
 
