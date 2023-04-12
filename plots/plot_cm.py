@@ -114,11 +114,11 @@ ngpu_colors = ['orange', 'cornflowerblue', 'forestgreen', 'lightgreen']
 genn_colors = ['yellow', 'steelblue', 'orangered']
 
 # build time plot with different hardware and simulators
-fig, (ax1,ax2) = plt.subplots(nrows=2, ncols=1, figsize = (12,12), tight_layout = True)
-ax1.text(-0.1, 1.05, "A", weight="bold", fontsize=ylabel_fs, color='k', transform=ax1.transAxes)
-nest_pos = [0.75]
+fig, (ax2,ax1) = plt.subplots(nrows=2, ncols=1, figsize = (12,12), tight_layout = True)
+ax1.text(-0.1, 1.05, "B", weight="bold", fontsize=ylabel_fs, color='k', transform=ax1.transAxes)
+nest_pos = [2.5]
 ngpu_conn_pos = [1.2, 1.5, 1.8, 2.1]
-genn_pos = [2.5, 2.8, 3.1, 3.4]
+genn_pos = [2.9, 3.2, 3.5, 3.8]
 nest_data = [nest_benchmark_pg]
 ngpu_main_data = [ngpu_main_v100_benchmark_pg, ngpu_main_a100_benchmark_pg, ngpu_main_2080_benchmark_pg, ngpu_main_4090_benchmark_pg]
 ngpu_conn_data = [ngpu_conn_v100_benchmark_pg, ngpu_conn_a100_benchmark_pg, ngpu_conn_2080_benchmark_pg, ngpu_conn_4090_benchmark_pg]
@@ -144,8 +144,8 @@ for i in range(len(genn_data)):
     ax1.bar(x=genn_pos[i], height=genn_data[i]["time_build"]["mean"], width=0.2, bottom=genn_data[i]["time_model_def"]["mean"]+genn_data[i]["time_load"]["mean"], color = genn_colors[2])
     ax1.bar(x=genn_pos[i], height=genn_data[i]["time_build"]["mean"], yerr=genn_data[i]["time_construct"]["std"], width=0.2, bottom=genn_data[i]["time_model_def"]["mean"]+genn_data[i]["time_load"]["mean"], color = "none", capsize=5, error_kw={"elinewidth": 2.25})
 
-ax1.set_xticks(ticks=nest_pos + ngpu_conn_pos + [1.65] + genn_pos + [2.95])
-ax1.set_xticklabels(labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU (onboard)", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
+ax1.set_xticks(ticks= ngpu_conn_pos + [1.65] + nest_pos + genn_pos + [2.95])
+ax1.set_xticklabels(labels=["V100", "A100", "2080Ti", "4090", "\nNEST GPU (onboard)", r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
 ax1.set_ylim(1e-4,1e2)
 ax1.set_yscale('log')
 ax1.set_ylabel('Network construction [s]', fontsize=ylabel_fs)
@@ -155,7 +155,7 @@ ax1.grid(axis='y', which='major', alpha=0.75)
 
 
 ################################################################
-ax2.text(-0.1, 1.05, "B", weight="bold", fontsize=ylabel_fs, color='k', transform=ax2.transAxes)
+ax2.text(-0.1, 1.05, "A", weight="bold", fontsize=ylabel_fs, color='k', transform=ax2.transAxes)
 
 for i in range(len(nest_data)):
     ax2.bar(x=nest_pos[i], height=nest_data[i]["time_initialize"]["mean"], width=0.2, color = ngpu_colors[0])
@@ -215,12 +215,12 @@ xax = ['NEST', 'NEST GPU (offboard)', 'NEST GPU (onboard)', 'GeNN']
 # simulation time [s]
 sim_time = 10.0
 
-nest_pos = [0.75]; nest_pos_L = [0.7]; nest_pos_R = [0.8]
+nest_pos = [2.5]; nest_pos_L = [2.45]; nest_pos_R = [2.55]
 #ngpu_main_pos = [1.2, 1.5, 1.8, 2.1]; ngpu_main_pos_L = [1.15, 1.45, 1.75, 2.05]; ngpu_main_pos_R = [1.25, 1.55, 1.85, 2.15]
 #ngpu_conn_pos = [2.5, 2.8, 3.1, 3.4]; ngpu_conn_pos_L = [2.45, 2.75, 3.05, 3.35]; ngpu_conn_pos_R = [2.55, 2.85, 3.15, 3.45]
 ngpu_conn_pos = [1.2, 1.5, 1.8, 2.1]; ngpu_conn_pos_L = [1.15, 1.45, 1.75, 2.05]; ngpu_conn_pos_R = [1.25, 1.55, 1.85, 2.15]
 #genn_pos = [3.8, 4.1, 4.4, 4.7]
-genn_pos = [2.5, 2.8, 3.1, 3.4]
+genn_pos = [2.9, 3.2, 3.5, 3.7]
 nest_data_L = [nest_benchmark_pg]
 nest_data_R = [nest_benchmark_dc]
 ngpu_main_data_L = [ngpu_main_v100_benchmark_pg, ngpu_main_a100_benchmark_pg, ngpu_main_2080_benchmark_pg, ngpu_main_4090_benchmark_pg]
@@ -263,7 +263,7 @@ plt.ylim(0,1.4)
 plt.grid(axis='y', which='major', alpha=0.75)
 plt.grid(axis='y', which='minor', linestyle='--', alpha=0.5)
 plt.tick_params(axis="x", length=0)
-plt.xticks(ticks=nest_pos + ngpu_conn_pos + [1.65] + genn_pos + [2.95], labels=[r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nNEST GPU (onboard)", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
+plt.xticks(ticks= ngpu_conn_pos + [1.65] + nest_pos + genn_pos + [3.35], labels=["V100", "A100", "2080Ti", "4090", "\nNEST GPU (onboard)", r"2$\times$64 cores" + "\nNEST 3.3 (CPU)", "V100", "A100", "2080Ti", "4090", "\nGeNN 4.8.0"], fontsize=tick_fs)
 plt.yticks(fontsize=tick_fs)
 plt.legend(fontsize=legend_fs, framealpha=1.0)
 
