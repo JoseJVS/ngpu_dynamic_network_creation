@@ -62,7 +62,7 @@ w = 1.0
 # synaptic delay
 d = 1.0
 # neuron parameters
-neur_params = {'a': 0.02, 'b': 0.2, 'c': -65.0, 'd': 8.0}
+neur_params = {'a': 0.0, 'b': 0.0, 'c': 0.0, 'd': 0.0}
 
 time_initialize = perf_counter_ns()
 
