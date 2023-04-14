@@ -15,9 +15,9 @@ parser.add_argument("file", type=str)
 parser.add_argument("--path", type=str, default=None)
 parser.add_argument("--seed", type=int, default=12345)
 parser.add_argument("--algo", type=int, default=0)
-parser.add_argument("--neurons", type=int, default=1000)
-parser.add_argument("--connections", type=int, default=100)
-parser.add_argument("--connectivity", type=str, default="fixed_total_number")
+parser.add_argument("--neurons", type=int, default=1000000)
+parser.add_argument("--connections", type=int, default=10000)
+parser.add_argument("--connectivity", type=str, default="fixed_indegree")
 args = parser.parse_args()
 
 if args.path is None:
@@ -121,7 +121,6 @@ conf_dict = {
     "nested_loop_algo": nl_dict[args.algo],
     "num_neurons": args.neurons,
     "av_num_conn_per_neuron": args.connections,
-    "total_connections": len(ngpu.GetConnections(neuron_pop1)) + len(ngpu.GetConnections(neuron_pop2)),
     "connectivity": args.connectivity,
     "seed": args.seed,
 }

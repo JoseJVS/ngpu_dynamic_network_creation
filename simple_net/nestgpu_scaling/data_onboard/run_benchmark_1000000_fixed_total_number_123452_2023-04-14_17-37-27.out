@@ -1,0 +1,11 @@
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(algo=0, connections=10000, connectivity='fixed_total_number', file='benchmark_times_1000000_fixed_total_number_123452_2023-04-14_17-37-27', neurons=1000000, path='data_onboard/fixed_total_number/10000_conn/1000000_neurons/seed_123452_id_2023-04-14_17-37-27', seed=123452)

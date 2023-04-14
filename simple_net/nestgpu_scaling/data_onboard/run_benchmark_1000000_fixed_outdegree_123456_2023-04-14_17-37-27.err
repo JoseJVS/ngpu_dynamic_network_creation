@@ -1,0 +1,7 @@
+GPUassert: out of memory /p/project/cjinb33/tiddia1/nestgpu_conn/repo/src/connect.cu 359
+Traceback (most recent call last):
+  File "simple_net.py", line 93, in <module>
+    ngpu.Connect(neuron_pop1, neuron_pop2, conn_dict, syn_dict)
+  File "/p/project/cjinb33/tiddia1/nestgpu_conn/build2/lib/python3.8/site-packages/nestgpu.py", line 2028, in Connect
+    raise ValueError(GetErrorMessage())
+ValueError: b'CUDA error'

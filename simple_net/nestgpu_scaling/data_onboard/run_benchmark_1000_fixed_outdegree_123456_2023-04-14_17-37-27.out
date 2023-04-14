@@ -1,0 +1,54 @@
+Allocating auxiliary GPU memory...
+storage bytes: 323815167
+Sorting...
+Indexing connection groups...
+Total number of connection groups: 1000
+Maximum number of connection groups (delays) over all nodes: 1
+Time:                                   4.21 ms
+Done
+Calibrating ...
+Simulating ...
+Neural activity simulation time: 1.000 ms
+
+              -- NEST GPU --
+
+  Copyright (C) 2021 The NEST Initiative
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Homepage: https://github.com/nest/nest-gpu
+
+Arguments: Namespace(algo=0, connections=10000, connectivity='fixed_outdegree', file='benchmark_times_1000_fixed_outdegree_123456_2023-04-14_17-37-27', neurons=1000, path='data_onboard/fixed_outdegree/10000_conn/1000_neurons/seed_123456_id_2023-04-14_17-37-27', seed=123456)
+{
+    "conf": {
+        "nested_loop_algo": "BlockStep",
+        "num_neurons": 1000,
+        "av_num_conn_per_neuron": 10000,
+        "connectivity": "fixed_outdegree",
+        "seed": 123456
+    },
+    "timers": {
+        "time_initialize": 1274540,
+        "time_create": 700261,
+        "time_connect": 2618120,
+        "time_calibrate": 4534812,
+        "time_construct": 9127733,
+        "time_simulate": 2754830,
+        "time_total": 11882563
+    }
+}
+
+  SpikeBufferUpdate_time: 0.0021182
+  poisson_generator_time: 4.09997e-07
+  neuron_Update_time: 0.00010977
+  copy_ext_spike_time: 0
+  SendExternalSpike_time: 0
+  SendSpikeToRemote_time: 0
+  RecvSpikeFromRemote_time: 0
+  NestedLoop_time: 0
+  GetSpike_time: 5.5381e-05
+  SpikeReset_time: 2.702e-05
+  ExternalSpikeReset_time: 0
+Building time: 0.00782434
+Simulation time: 0.00271598
