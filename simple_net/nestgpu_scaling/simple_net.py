@@ -47,7 +47,7 @@ nl_dict = {
 time_start = perf_counter_ns()
 
 # set time resolution and NestedLoop algorithm
-ngpu.SetTimeResolution(0.1)
+ngpu.SetTimeResolution(1.0)
 if hasattr(ngpu, "SetNestedLoopAlgo"):
     ngpu.SetNestedLoopAlgo(args.algo)
 else:
@@ -99,7 +99,7 @@ ngpu.Connect(neuron_pop2, neuron_pop2, conn_dict, syn_dict)
 time_connect = perf_counter_ns()
 
 ngpu.Calibrate()
-#ngpu.Simulate(0.1)
+#ngpu.Simulate(1.0)
 
 time_calibrate = perf_counter_ns()
 
