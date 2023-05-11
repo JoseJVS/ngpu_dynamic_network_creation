@@ -15,6 +15,7 @@ For installation instructions on the simulators, see:
 Additionally to run the scripts to post process the data and generate plots, Python and additional packages are required.
 To run the data post processing scripts and plotting scripts the following software was used:
  * Python 3.8.6
+ * Pandas 1.3.3
  * Numpy 1.22
  * Matplotlib 3.5
  * Tol Colors 1.2.1 (https://pypi.org/project/tol-colors/)
