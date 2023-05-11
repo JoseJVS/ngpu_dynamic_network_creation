@@ -19,6 +19,7 @@ tick_fs = 15
 legend_fs = 16
 ylabel_fs = 18
 
+
 # Define paths to data directories
 nest_path_pg = Path("../data/nest_jureca/microcircuit_benchmarks/poi_gen_benchmark")
 nest_path_dc = Path("../data/nest_jureca/microcircuit_benchmarks/dc_input_benchmark")
@@ -272,7 +273,7 @@ plt.tight_layout()
 plt.savefig("cm_overall_real_time_fact.pdf")
 
 
-
+#########################################################################################
 fig, (ax1,ax2) = plt.subplots(nrows=2, ncols=1, figsize = (12,12), tight_layout = True)
 ax1.text(-0.1, 1.05, "A", weight="bold", fontsize=ylabel_fs, color='k', transform=ax1.transAxes)
 xax = ['NEST GPU (onboard)', 'NEST GPU (offboard)']
