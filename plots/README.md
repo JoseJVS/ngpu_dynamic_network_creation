@@ -1,12 +1,26 @@
 # Plotting scripts
 
-Plotting scripts used to generate figures for #INSERT PAPER REF#
+Plotting scripts used to generate figures for #INSERT PAPER REF#.
 
 ## Contents
 
 ### Cortical Microcircuit
 
-[plot_cm.py](plot_cm.py) to generate figures #INSERT FIGURE REF# from #INSERT PAPER REF#, [cm_net_constr.pdf](cm_net_constr.pdf), and [cm_tot.pdf](cm_tot.pdf) respectively.
-<br>
+[plot_cm.py](plot_cm.py) to generate figures #INSERT FIGURES REF#, [cm_net_constr.pdf](cm_net_constr.pdf), [cm_real_time_fact.pdf](cm_real_time_fact.pdf) and [cm_overall_real_time_fact.pdf](cm_overall_real_time_fact.pdf) respectively.
+
 To generate new plots from new data, the scripts assumes that the data to be loaded follows the structure given by the ```gather_data.py``` script in the model directories.
-Furthermore it is necessary to update the paths in lines [L24](plot_cm.py#L24) - [L36](plot_cm.py#L36) with the desired directories containing the corresponding new data.
+Furthermore it is necessary to update the paths in lines [L24](plot_cm.py#L24) - [L50](plot_cm.py#L50) with the desired directories containing the corresponding new data.
+
+
+### Two-populations network
+
+[plot_tpn.py](plot_tpn.py) to generate figures #INSERT FIGURES REF#,[cm_net_constr.pdf](cm_net_constr.pdf), and [cm_tot.pdf](cm_tot.pdf) respectively.
+
+To generate new plots from new data, the scripts assumes that the data to be loaded follows the structure given by the ```gather_data.py``` script in the model directories.
+Furthermore it is necessary to update the paths in line [L30](plot_tpn.py#L30) with the desired directory containing the corresponding new data.
+
+
+### COPASS algorithm
+
+[copass_plot.py](copass_plot.py) to generate figure #INSERT FIGURE REF#, [copass.pdf](copass.pdf).
+
