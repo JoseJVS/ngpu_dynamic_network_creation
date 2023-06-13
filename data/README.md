@@ -25,8 +25,9 @@ GeNN directories contain a single set of microcircuit benchmarking data.
 <br>
 NEST and NEST GPU directories contain data sets for microcircuit benchmarks using DC inputs or poisson generators, these are stored in ```dc_input_benchmark``` and ```poi_gen_benchmark``` directories respectively.
 <br>
-NEST GPU directories contain benchmarking sets for both the "main" version and "conn" version described in [README](../README.md). To distinguish them, ```main``` and ```conn``` prefixes were added to the corresponding directories.
+NEST GPU directories contain benchmarking sets for both the "offboard" version and "onboard" version described in [README](../README.md). To distinguish them, ```offboard``` and ```onboard``` prefixes were added to the corresponding directories.
 
-### Balanced random network with Izhikevich neurons
+### Two population network with Izhikevich neurons
 
-TODO
+This network was only implemented with NEST GPU "onboard" version and benchmark were only done in the JURECA-DC cluster.
+Data files can be found in [onboard_benchmark](nestgpu_jureca/two_population_benchmarks/onboard_benchmark/)
