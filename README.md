@@ -21,7 +21,9 @@ To run the data post processing scripts and plotting scripts the following softw
  * Tol Colors 1.2.1 (https://pypi.org/project/tol-colors/)
 
 ## Contents
-The [data](data/) directory contains all of the generated data used in the paper and the [plots](plots/) directory contains the scripts to generate the plots in the paper.
+The [data](data/) directory contains all of the generated data used in the paper.
+The [plots](plots/) directory contains the scripts to generate the plots from the Results section in the paper.
+The [validation](validation/) directory contains the scripts to do the statistical validation of spike recordings and generate the respective plots in the paper.
 
 Simulation scripts to generate new datasets are found in [ngpu_microcircuit](ngpu_microcircuit/), [ngpu_two_population_network](ngpu_two_population_network), [nest_microcircuit](nest_microcircuit/), [genn_microcircuit](genn_microcirctui/).
 
