@@ -52,7 +52,7 @@ These files were modified for benchmarking purposes:
 ### Additional files
 
 These files were added for benchmarking purposes:
- - [run_benchmark.py](run_benchmark.py): Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
+ - [run_benchmark.py](run_benchmark.py): Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in 2.4), and data exporting to json files.
    - Modified initial conditions of membrane potential ([L218](run_benchmark.py#L218) and [L242](run_benchmark.py#L242)) to use "optimized" parameters such as those used by NEST GPU and NEST cortical microcircuit.
  - [gather_data.py](gather_data.py): Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - [benchmark.sh](benchmark.sh): Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.

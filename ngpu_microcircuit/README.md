@@ -39,12 +39,12 @@ These files were modified for benchmarking purposes:
 ### Additional files
 
 These files were added for benchmarking purposes:
- - [run_benchmark.py](run_benchmark.py): Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
+ - [run_benchmark.py](run_benchmark.py): Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in 2.4), and data exporting to json files.
    - Added handling of different Nested Loop algorithms passed as argument.
  - [gather_data.py](gather_data.py): Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
  - [benchmark.sh](benchmark.sh): Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
    - By default, nested loop algorithm used is BlockStep, this can be changed in [L28](benchmark.sh#L28)
- - [run_recording.py](run_recording.py): Python script based on the original simulation script of the model with additional adaptations for multiple recording sessions, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
+ - [run_recording.py](run_recording.py): Python script based on the original simulation script of the model with additional adaptations for multiple recording sessions, notably the addition of command line argument handling, simulation timers (cf Models sub-section in 2.4), and data exporting to json files.
    - This Python script is meant to be run by the ```recording.sh``` script found in this directory.
      - To run it individually, examples of local execution and SLURM execution are found in ```recording.sh```.
    - In this script:

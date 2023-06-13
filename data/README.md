@@ -7,9 +7,9 @@ To generate new data, check the model directories available in this repo, for mo
 ## Contents
 
 The available directories are named after the simulator used to generate the data and the platform where it was simulated, e.g.
- - [genn_20280](genn_20280): GeNN simulator using RTX 2080Ti from "Workstation 1" described in "Hardware and Software" subsection of #INSERT PAPER REF#.
- - [nest_jureca](nest_jureca): NEST simulator using 1 node of the JURECA-DC cluster described in "Hardware and Software" subsection of #INSERT PAPER REF#.
- - [nestgpu_jusuf](nestgpu_jusuf): NEST GPU simulator using 1 node equipped with a V100 GPU of the JUSUF cluster described in "Hardware and Software" subsection of #INSERT PAPER REF#.
+ - [genn_20280](genn_20280): GeNN simulator using RTX 2080Ti from "Workstation 1" described in "Hardware and Software" subsection 2.5.
+ - [nest_jureca](nest_jureca): NEST simulator using 1 node of the JURECA-DC cluster described in "Hardware and Software" subsection 2.5.
+ - [nestgpu_jusuf](nestgpu_jusuf): NEST GPU simulator using 1 node equipped with a V100 GPU of the JUSUF cluster described in "Hardware and Software" subsection 2.5.
 
 <br>
 

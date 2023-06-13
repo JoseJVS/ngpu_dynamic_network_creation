@@ -6,7 +6,7 @@ Time of writing: 11.03.2023, last update to model: 01.02.2023
 
 <br>
 
-To reproduce the performance shown in the data for the NEST simulations it is needed to use high-performance computing systems, the systems used for the paper are described in the "Hardware and Software" subsection in #INSERT PAPER REF#
+To reproduce the performance shown in the data for the NEST simulations it is needed to use high-performance computing systems, the systems used for the paper are described in the "Hardware and Software" subsection 2.5.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Furthermore to run the full scaled microcircuit in a compute node, while taking 
 
 <br>
 
-To obtain the same network construction times as in the #INSERT PAPER REF#, [jemalloc](https://github.com/jemalloc/jemalloc) is needed.
+To obtain the same network construction times as shown in the results section 3, [jemalloc](https://github.com/jemalloc/jemalloc) is needed.
 To allow NEST to take advantage of its functionalities, exporting the path to the compiled, shared library is needed:
 ```shell
 export LD_PRELOAD=PATH_TO/libjemalloc.so
@@ -56,7 +56,7 @@ These files were modified for benchmarking purposes:
 ### Additional files
 
 These files were added for benchmarking purposes:
- - [run_benchmark.py](run_benchmark.py): Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
+ - [run_benchmark.py](run_benchmark.py): Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section 2.4), and data exporting to json files.
     - Added handling of number of threads and processes passed as arguments.
     - Added computing of mean firing rate of neurons using the local_spike_counter kernel attribute.
  - [merge_data.py](merge_data.py): Python script to merge output of multiple MPI processes during a single simulation.

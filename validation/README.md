@@ -15,6 +15,7 @@ All the simulations should have enabled the recording of the spikes and should h
 ## Configuration
 
 To set all the steps of the validation process you can edit the Python script ``val_config.py`` which contains all the information needed to perform the validation. You can edit the number of simulations for each set (i.e. ``nrun``), the paths for the simulation directories and boolean parameters that can enable or disable the computation of the distribution plots and the EMD box plots.
+The plots generated correspond to figures A2 and A3 in the paper; [distributions_violinplot_0.pdf](distributions_violinplot_0.pdf) and [emd_boxplot.pdf](emd_boxplot.pdf) respectively.
 
 ## Run validation
 

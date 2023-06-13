@@ -1,6 +1,6 @@
 # Two population network model for NEST GPU
 
-Created for #INSERT PAPER REF#.
+Created for network construction benchmarks, described in Models sub-section 2.4 and results shown in section 3 of #INSERT PAPER REF#.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Hence the neuron model was arbitrarily chosen to be the Izhikevich neuron model 
 For the benchmarks we focused on the fixed indegree, fixed outdegree and fixed total number connectivity rules.
 
 These files were added for benchmarking purposes:
- - [run_benchmark.py](run_benchmark.py): Python script for two population network model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
+ - [run_benchmark.py](run_benchmark.py): Python script for two population network model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in 2.4), and data exporting to json files.
    - Added handling of different Nested Loop algorithms passed as argument.
    - Added handling of neuron amount passed as argument.
    - Added handling of connection amount passed as argument.
