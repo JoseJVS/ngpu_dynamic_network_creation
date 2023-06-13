@@ -6,7 +6,7 @@ Time of writing: 11.03.2023, last update to model: 13.02.2023
 
 ## Prerequisites
 
-These scripts were tested with NEST GPU version #INSERT MAIN TAG# and version #INSERT CONN TAG#
+These scripts were tested with NEST GPU version tag [offboard](https://github.com/nest/nest-gpu/releases/tag/nest-gpu_offboard) and version tag [onboard](https://github.com/nest/nest-gpu/releases/tag/nest-gpu_onboard).
 Installation instructions can be found at:
  - https://nest-gpu.readthedocs.io/en/latest/installation/index.html
 
