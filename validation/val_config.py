@@ -1,7 +1,7 @@
 # configuration file for validation process for the cortical microcircuit model
 
 configuration = {
-# number of performed simlations
+# number of performed simulations
 'nrun': 100,
 # absolute paths for simulation output
 # output directories should be data{0..nrun-1}

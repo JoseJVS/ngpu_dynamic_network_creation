@@ -1,6 +1,6 @@
 # NEST GPU Validation for Cortical Microcircuit model simulations
 
-Here is presented a fast way for compare the results in terms of spiking activity between the two versions of NEST GPU for the simulation of the Cortical Microcircuit model (Potjans, 2014). 
+Here is presented a fast way for comparing the results in terms of spiking activity between the two versions of NEST GPU for the simulation of the Cortical Microcircuit model (Potjans, 2014). 
 
 The validation takes in input the files of the spike times for the simulations and returns the distributions of firing rate, CV ISI and Pearson correlation for every population of the model. The distributions obtained using the two versions of NEST GPU are shown side by side using box plots or violin plots, and are quantitatively compared using the Earth Mover's Distance (EMD) metric.
 
