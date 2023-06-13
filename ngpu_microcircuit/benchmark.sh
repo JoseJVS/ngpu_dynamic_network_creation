@@ -1,6 +1,6 @@
 #!/bin/bash
 # Benchmarking script for executing 10 simulations
-# with different random generation seeds with NEST GPU
+# with different random generation seeds with NEST GPU.
 # NEST GPU onboard requires OpenMP pinning for good performance.
 # execute with:
 #	bash benchmark.sh
