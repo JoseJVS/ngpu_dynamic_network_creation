@@ -54,10 +54,10 @@ for conn_rule in fixed_indegree fixed_outdegree fixed_total_number; do
                 fi
 
                 # Run locally
-                python3 simple_net.py benchmark_times_$run_id --neurons=$neur --connectivity=$conn_rule --connections=$conn --path=$run_path --seed=$seed --algo=$nl_algo 2> $data_path/run_benchmark_$run_id.err 1> $data_path/run_benchmark_$run_id.out
+                python3 run_benchmark.py benchmark_times_$run_id --neurons=$neur --connectivity=$conn_rule --connections=$conn --path=$run_path --seed=$seed --algo=$nl_algo 2> $data_path/run_benchmark_$run_id.err 1> $data_path/run_benchmark_$run_id.out
 
                 # Run with slurm
-                # srun --ntasks-per-node=$procs --cpus-per-task=$threads --threads-per-core=1 --cpu-bind=verbose,rank --error=$data_path/run_benchmark_$run_id.err --output=$data_path/run_benchmark_$run_id.out python3 run_benchmark.py benchmark_times_$run_id --path=$run_path --seed=$seed --algo=$nl_algo
+                # srun --ntasks-per-node=$procs --cpus-per-task=$threads --threads-per-core=1 --cpu-bind=verbose,rank --error=$data_path/run_benchmark_$run_id.err --output=$data_path/run_benchmark_$run_id.out python3 run_benchmark.py benchmark_times_$run_id --neurons=$neur --connectivity=$conn_rule --connections=$conn --path=$run_path --seed=$seed --algo=$nl_algo
             done
 
             python3 gather_data.py $data_path/$conn_rule/$conn\_conn/$neur\_neurons --out=$data_path/benchmark\_data\_$conn_rule\_$conn\_$neur\_$sim_id.json
