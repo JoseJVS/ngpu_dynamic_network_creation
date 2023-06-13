@@ -10,7 +10,7 @@ To perform the validation you need 3 sets of ``nrun`` simulations:
 - a set NEST GPU simulations with the new method for network construction;
 - two sets of the previous version of NEST GPU simulations with different seeds for random number generation.
 
-All the simulations should have enabled the recording of the spikes and should have 500 ms of presimulation and 10000 ms of simulation. The simulations sets should be stored in separate directories, and the results of each simulation of the set should be saved into separate folders (data0, data1, ..., data9).
+All the simulations should have enabled the recording of the spikes and should have at least 500 ms of presimulation and 10000 ms of simulation. The simulations sets should be stored in separate directories, and the results of each simulation of the set should be saved into separate folders (data0, data1, ..., data9).
 
 ## Configuration
 

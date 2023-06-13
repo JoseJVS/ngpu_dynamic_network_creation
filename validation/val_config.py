@@ -12,7 +12,7 @@ configuration = {
 'distributions': ['firing_rate', 'cv_isi', 'correlation'],
 'plot_distributions': True,
 'distribution_visual': 'violinplot', #['violinplot', 'boxplot']
-# pairwise EMD compatrison
+# pairwise EMD comparison
 'emd': True,
 'emd_boxplots': True}
 
