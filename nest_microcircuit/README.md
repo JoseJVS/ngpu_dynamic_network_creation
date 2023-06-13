@@ -51,7 +51,7 @@ These files did not change with respect to the source at time of writing:
 These files were modified for benchmarking purposes:
  - [network.py](network.py):
     - Disabled Prepare and Cleanup call from connect function [L98](network.py#L98): To properly measure calibration time, Prepare and Cleanup functions were commented: [L126](network.py#L126) and [L127](network.py#L127).
-    - Fixed MPI related bug at __setup_nest function [L263](network.py#L263): At time of writing, accessing kernel values inside a Python print statement when using multiple MPI processes causes an MPI library crash. For this, the access of kernel values was moved before the print: [L276](network.py#L276) and [L277](network.py#L277).
+    - Fixed MPI related bug at __setup_nest function [L263](network.py#L263) see pull request [2749](https://github.com/nest/nest-simulator/pull/2749) in NEST github repository.
 
 ### Additional files
 
