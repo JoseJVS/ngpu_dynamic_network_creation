@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+#
+# run_validation.py
+# execute with:
+#	python3 run_validation.py
+
 from val_config import configuration
 from val_helpers import __get_distributions, __get_distributions_csv, __plot_distributions, __get_emd, __get_emd_csv, __plot_emd
 

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 # configuration file for validation process for the cortical microcircuit model
 
 configuration = {

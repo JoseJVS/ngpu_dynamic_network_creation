@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+#
+# validation helpers file containing auxiliary functions for validation procedures.
+
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -211,7 +215,7 @@ def __get_distributions_csv(simulation = 'Sim 1'):
 
     Returns
     -------
-    csv files containing the values of the distributions of Set 3 and the set choosen using the simulation variable.
+    csv files containing the values of the distributions of Set 3 and the set chosen using the simulation variable.
         
     """
 
