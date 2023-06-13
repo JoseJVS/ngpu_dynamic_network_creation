@@ -25,7 +25,7 @@ legend_fs = 16
 ylabel_fs = 18
 
 # Define paths to data directories
-data_path = "../simple_net/nestgpu_scaling/data_onboard/"
+data_path = Path("../data/nestgpu_jureca/two_population_benchmarks/onboard_benchmark")
 
 # dicts to store data
 data = {"fixed_indegree": {"neurons": [], "conn_per_neuron": [], "constr_time": [], "constr_time_std": []},
@@ -39,20 +39,20 @@ connections = [100, 1000, 10000]
 for rule in ["fixed_indegree", "fixed_outdegree", "fixed_total_number"]:
     for n in neurons:
         for m in connections:
-            jf = open(data_path + "benchmark_data_" + rule + "_" + str(m) + "_" + str(n) + "_2023-04-14_17-37-27.json")
-            json_file = json.load(jf)
-            if(json_file=={}):
+            #jf = open(data_path + "benchmark_data_" + rule + "_" + str(m) + "_" + str(n) + "_2023-04-14_17-37-27.json")
+            #json_file = json.load(jf)
+            benchmark_data = json.loads(next(data_path.glob(f"benchmark_data_{rule}_{m}_{n}_*.json")).read_text())
+            if(benchmark_data == {}):
                 time = math.nan
                 time_std = math.nan
             else:
-                time = json_file['BlockStep']['timers']['time_construct']['mean']
-                time_std = json_file['BlockStep']['timers']['time_construct']['std']
+                time = benchmark_data['BlockStep']['timers']['time_construct']['mean']
+                time_std = benchmark_data['BlockStep']['timers']['time_construct']['std']
             #print("N {}, M {}, time {}".format(n, m, time))
             data[rule]["neurons"].append(n)
             data[rule]["conn_per_neuron"].append(m)
             data[rule]["constr_time"].append(time)
             data[rule]["constr_time_std"].append(time_std)
-            jf.close()
 
 # create DataFrames
 df_fixed_indegree = pd.DataFrame(data["fixed_indegree"])
