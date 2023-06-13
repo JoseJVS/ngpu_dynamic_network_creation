@@ -3,9 +3,7 @@
 # run_benchmark.py
 # execute with:
 #	python3 run_benchmark.py FILE [--path=PATH] [--seed=SEED] [--algo=ALGO]
-#		with FILE the name of the file to output the JSON results
-#			when using multiple MPI processes, on file for each will be generated
-#			and the rank will be added as a suffix to the FILE name.
+#		with FILE the name of the file to output the JSON results.
 #		with PATH an optional argument to the path to the directory
 #		    where data must be output. Defaults to "$PWD/data".
 #		with SEED an optional integer argument for the simulation seed.
