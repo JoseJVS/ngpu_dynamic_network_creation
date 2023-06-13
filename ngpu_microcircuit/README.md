@@ -65,11 +65,11 @@ To run a 10 simulation benchmark using 10 different random generation seeds:
 bash benchmark.sh
 ```
 
-By default this script runs on local machines, this can be changed to run with SLURM in an interactive session by commenting [L58](benchmark.sh#L58) and uncommenting [L61](benchmark.sh#L61).
+By default this script runs on local machines, this can be changed to run with SLURM in an interactive session by commenting [L63](benchmark.sh#L63) and uncommenting [L66](benchmark.sh#L66).
 
 To run 10 simulations with recordings using 10 different random generation seeds:
 ```shell
 bash recording.sh
 ```
 
-By default this script runs on local machines, this can be changed to run with SLURM in an interactive session by commenting [L58](recording.sh#L58) and uncommenting [L61](recording.sh#L61).
+By default this script runs on local machines, this can be changed to run with SLURM in an interactive session by commenting [L63](recording.sh#L63) and uncommenting [L66](recording.sh#L66).
