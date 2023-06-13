@@ -47,7 +47,7 @@ In particular:
  - ```run_benchmark.py```: Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section in #INSERT PAPER REF#), and data exporting to json files.
    - This Python script is meant to be run by the ```benchmark.sh``` script found in each model directory.
      - To run it individually, examples of local execution and SLURM execution are found in each corresponding ```benchmark.sh```.
-   - As stated in the "Hardware and Software" subsection in #INSERT PAPER REF#, in these scripts:
+   - As stated in the "Hardware and Software" subsection in #INSERT PAPER REF#, in the microcircuit benchmarking scripts:
      - Spike recording is disabled.
      - Poisson generators are enabled.
      - Optimized membrane potentials are enabled.
