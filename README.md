@@ -6,7 +6,7 @@ If you want to cite this, use:
 #INSERT PAPER REF#
 
 ## Requirements
-To run the simulations, NEST GPU version #INSERT MAIN TAG# and version #INSERT CONN TAG#, NEST version 3.3, and GeNN version 4.8.0 are required.
+To run the simulations, NEST GPU version tag [offboard](https://github.com/nest/nest-gpu/releases/tag/nest-gpu_offboard) and version tag [onboard](https://github.com/nest/nest-gpu/releases/tag/nest-gpu_onboard), NEST version 3.3, and GeNN version 4.8.0 are required.
 For installation instructions on the simulators, see:
  - https://nest-gpu.readthedocs.io/en/latest/installation/index.html
  - https://nest-simulator.readthedocs.io/en/v3.3/installation/index.html
@@ -23,7 +23,7 @@ To run the data post processing scripts and plotting scripts the following softw
 ## Contents
 The [data](data/) directory contains all of the generated data used in the paper and the [plots](plots/) directory contains the scripts to generate the plots in the paper.
 
-Simulation scripts to generate new datasets are found in [ngpu_microcircuit](ngpu_microcircuit/), [nest_microcircuit](nest_microcircuit/), [genn_microcircuit](genn_microcirctui/).
+Simulation scripts to generate new datasets are found in [ngpu_microcircuit](ngpu_microcircuit/), [ngpu_two_population_network](ngpu_two_population_network), [nest_microcircuit](nest_microcircuit/), [genn_microcircuit](genn_microcirctui/).
 
 Simulation scripts directories prepended by:
  - ngpu_: are meant to be run with NEST GPU.
@@ -37,6 +37,8 @@ Simulation scripts directories prepended by:
     - NEST GPU microcircuit taken from: https://github.com/nest/nest-gpu/tree/main/python/Potjans_2014
     - NEST microcircuit taken from: https://github.com/nest/nest-simulator/tree/master/pynest/examples/Potjans_2014
     - GeNN microcircuit taken from: https://github.com/BrainsOnBoard/pygenn_paper
+  - Two population network for NEST GPU:
+    - This is a simple network for network construction benchmarks with population size and connection count scaling.
 
 <br>
 
