@@ -1,3 +1,46 @@
+# -*- coding: utf-8 -*-
+#
+# run_benchmark.py
+# execute with:
+#	python3 run_benchmark.py FILE [--path=PATH] [--seed=SEED] [--algo=ALGO] [--neurons=N] [--connections=M] [--connectivity=RULE]
+#		with FILE the name of the file to output the JSON results.
+#		with PATH an optional argument to the path to the directory
+#		    where data must be output. Defaults to "$PWD/data".
+#		with SEED an optional integer argument for the simulation seed.
+#			Defaults to 12345
+#		with ALGO an optional integer argument for the number nested loop algorithm to be used.
+#			Defaults to 0
+#           Avaiable nested loop algorithms:
+#           0: BlockStep
+#           1: CumulSum
+#           2: Simple
+#           3: ParallelInner
+#           4: ParallelOuter
+#           5: Frame1D
+#           6: Frame2D
+#           7: Smart1D
+#           8: Smart2D
+#		with N an optional integer argument for the TOTAL amount of neurons i.e. each population gets N/2 neurons.
+#			Defaults to 1000000
+#		with M an optional integer argument for the TOTAL amount of connections i.e. each neuron gets M connections.
+#			Defaults to 10000
+#		with RULE an optional argument for the connectivity rule.
+#			Defaults to fixed_indegree
+#           Connectivity rules used for benchmarking:
+#           - fixed_indegree
+#           - fixed_outdegree
+#           - fixed_total_number
+
+"""
+--------------------------------------------------
+
+This is the script for running the two population network model.
+
+"""
+
+###############################################################################
+# Import the necessary modules and start the time measurements.
+
 import sys
 import ctypes
 import numpy as np
@@ -75,7 +118,7 @@ ngpu.SetStatus(neuron_pop2, neur_params)
 time_create = perf_counter_ns()
 
 # connect population 1 to 2 and vice versa
-# can be all_to_all or one_to_one
+# can be fixed_indegree, fixed_outdegree or fixed_total_number
 
 if(args.connectivity == "fixed_indegree"):
     conn_dict={"rule": args.connectivity, "indegree": C//2}
@@ -99,7 +142,6 @@ ngpu.Connect(neuron_pop2, neuron_pop2, conn_dict, syn_dict)
 time_connect = perf_counter_ns()
 
 ngpu.Calibrate()
-#ngpu.Simulate(1.0)
 
 time_calibrate = perf_counter_ns()
 
