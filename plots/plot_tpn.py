@@ -34,6 +34,7 @@ data = {"fixed_indegree": {"neurons": [], "conn_per_neuron": [], "constr_time": 
 
 neurons = [1000, 10000, 100000, 1000000]
 connections = [100, 1000, 10000]
+nlabel = ["100", "1000", "10,000"]
 
 # fill the data dict
 for rule in ["fixed_indegree", "fixed_outdegree", "fixed_total_number"]:
@@ -66,7 +67,7 @@ linestyles = ["--", "-.", ":"]
 for i, m in enumerate(connections):
     df = df_fixed_total_number[(df_fixed_total_number["conn_per_neuron"]==m)]
     #print(df)
-    plt.errorbar(df["neurons"], df["constr_time"], yerr=df["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = {}".format(m))
+    plt.errorbar(df["neurons"], df["constr_time"], yerr=df["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = "+nlabel[i])
 
 plt.xlabel("Number of neurons (N)", fontsize=tick_fs)
 plt.ylabel("Network construction time [s]", fontsize=tick_fs)
@@ -83,7 +84,7 @@ fig = plt.figure(2, figsize = (9,5), tight_layout = True)
 for i, m in enumerate(connections):
     df = df_fixed_indegree[(df_fixed_indegree["conn_per_neuron"]==m)]
     #print(df)
-    plt.errorbar(df["neurons"], df["constr_time"], yerr=df["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = {}".format(m))
+    plt.errorbar(df["neurons"], df["constr_time"], yerr=df["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = "+nlabel[i])
 
 plt.xlabel("Number of neurons (N)", fontsize=tick_fs)
 plt.ylabel("Network construction time [s]", fontsize=tick_fs)
@@ -100,7 +101,7 @@ fig = plt.figure(3, figsize = (9,5), tight_layout = True)
 for i, m in enumerate(connections):
     df = df_fixed_outdegree[(df_fixed_outdegree["conn_per_neuron"]==m)]
     #print(df)
-    plt.errorbar(df["neurons"], df["constr_time"], yerr=df["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = {}".format(m))
+    plt.errorbar(df["neurons"], df["constr_time"], yerr=df["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = "+nlabel[i])
 
 plt.xlabel("Number of neurons (N)", fontsize=tick_fs)
 plt.ylabel("Network construction time [s]", fontsize=tick_fs)
@@ -119,10 +120,10 @@ ax2.text(-0.1, 1.05, "B", weight="bold", fontsize=ylabel_fs, color='k', transfor
 
 for i, m in enumerate(connections):
     df_out = df_fixed_outdegree[(df_fixed_outdegree["conn_per_neuron"]==m)]
-    ax2.errorbar(df_out["neurons"], df_out["constr_time"], yerr=df_out["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = {}".format(m))
+    ax2.errorbar(df_out["neurons"], df_out["constr_time"], yerr=df_out["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = "+nlabel[i])
 
     df_in = df_fixed_indegree[(df_fixed_indegree["conn_per_neuron"]==m)]
-    ax1.errorbar(df_in["neurons"], df_in["constr_time"], yerr=df_in["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = {}".format(m))
+    ax1.errorbar(df_in["neurons"], df_in["constr_time"], yerr=df_in["constr_time_std"], marker="o", markersize=3, linestyle= linestyles[i], elinewidth=2.0, capsize=3.0, color = colors[i], label="K = "+nlabel[i])
 
 ax1.set_xlabel("Number of neurons (N)", fontsize=tick_fs)
 ax1.set_ylabel("Network construction time [s]", fontsize=tick_fs)
