@@ -1,6 +1,10 @@
 # Plotting scripts
 
-Plotting scripts used to generate figures for #INSERT PAPER REF#.
+Plotting scripts used to generate figures for:
+<br>
+<br>
+Golosio, B.; Villamar, J.; Tiddia, G.; Pastorelli, E.; Stapmanns, J.; Fanti, V.; Paolucci, P.S.; Morrison, A.; Senk, J. Runtime Construction of Large-Scale Spiking Neuronal Network Models on GPU Devices. Appl. Sci. 2023, 13, 9598. https://doi.org/10.3390/app13179598
+<br>
 
 ## Contents
 
