@@ -1,6 +1,10 @@
 # Two population network model for NEST GPU
 
-Created for network construction benchmarks, described in Models sub-section 2.4 and results shown in section 3 of #INSERT PAPER REF#.
+Created for network construction benchmarks, described in Models sub-section 2.4 and results shown in section 3 of:
+<br>
+<br>
+Golosio, B.; Villamar, J.; Tiddia, G.; Pastorelli, E.; Stapmanns, J.; Fanti, V.; Paolucci, P.S.; Morrison, A.; Senk, J. Runtime Construction of Large-Scale Spiking Neuronal Network Models on GPU Devices. Appl. Sci. 2023, 13, 9598. https://doi.org/10.3390/app13179598
+<br>
 
 ## Prerequisites
 
