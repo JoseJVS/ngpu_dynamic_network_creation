@@ -1,9 +1,12 @@
 # NEST GPU Dynamic Network Creation
 
-This repository contains the data and scripts used for the #INSERT PAPER REF#.
+This repository contains the data and scripts used for the paper: *Runtime Construction of Large-Scale Spiking Neuronal Network Models on GPU Devices*.
 <br>
 If you want to cite this, use:
-#INSERT PAPER REF#
+<br>
+<br>
+Golosio, B.; Villamar, J.; Tiddia, G.; Pastorelli, E.; Stapmanns, J.; Fanti, V.; Paolucci, P.S.; Morrison, A.; Senk, J. Runtime Construction of Large-Scale Spiking Neuronal Network Models on GPU Devices. Appl. Sci. 2023, 13, 9598. https://doi.org/10.3390/app13179598
+<br>
 
 ## Requirements
 To run the simulations, NEST GPU version tag [offboard](https://github.com/nest/nest-gpu/releases/tag/nest-gpu_offboard) and version tag [onboard](https://github.com/nest/nest-gpu/releases/tag/nest-gpu_onboard), NEST version 3.3, and GeNN version 4.8.0 are required.
