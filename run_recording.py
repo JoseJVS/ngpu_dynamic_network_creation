@@ -3,9 +3,7 @@
 # run_recording.py
 # execute with:
 #	python3 run_recording.py FILE [--path=PATH] [--seed=SEED] [--algo=ALGO]
-#		with FILE the name of the file to output the JSON results
-#			when using multiple MPI processes, on file for each will be generated
-#			and the rank will be added as a suffix to the FILE name.
+#		with FILE the name of the file to output the JSON results.
 #		with PATH an optional argument to the path to the directory
 #		    where data must be output. Defaults to "$PWD/data".
 #		with SEED an optional integer argument for the simulation seed.
@@ -48,7 +46,7 @@ from json import dump, dumps
 
 # Get and check file path
 parser = ArgumentParser()
-parser.add_argument("file", type=str)
+parser.add_argument("--file", type=str, default="recording_log")
 parser.add_argument("--path", type=str, default=None)
 parser.add_argument("--seed", type=int, default=12345)
 parser.add_argument("--algo", type=int, default=0)
@@ -63,7 +61,7 @@ else:
 file_name = args.file + ".json"
 file_path = data_path / file_name
 
-assert 0 <= args.algo and args.algo < 9 and data_path.is_dir() and not file_path.exists()
+assert 0 <= args.algo and args.algo < 9
 
 print(f"Arguments: {args}")
 
