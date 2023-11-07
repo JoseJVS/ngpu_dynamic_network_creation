@@ -50,6 +50,8 @@ parser.add_argument("--file", type=str, default="recording_log")
 parser.add_argument("--path", type=str, default=None)
 parser.add_argument("--seed", type=int, default=12345)
 parser.add_argument("--algo", type=int, default=0)
+parser.add_argument("--sim_time", type=int, default=10000)
+parser.add_argument("--scale", type=int, default=1)
 args = parser.parse_args()
 
 if args.path is None:
@@ -89,13 +91,13 @@ nl_dict = {
 
 sim_dict.update({
     't_presim': 500.,
-    't_sim': 10000.,
+    't_sim': 1. * args.sim_time,
     'rec_dev': ['spike_detector'],
     'master_seed': args.seed})
 
 net_dict.update({
-    'N_scaling': 1.,
-    'K_scaling': 1.,
+    'N_scaling': 1. * args.scale,
+    'K_scaling': 1. * args.scale,
     'poisson_input': True,
     'V0_type': 'optimized'})
 
