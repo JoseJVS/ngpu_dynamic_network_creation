@@ -44,12 +44,13 @@ from time import perf_counter_ns
 from argparse import ArgumentParser
 from pathlib import Path
 from json import dump, dumps
+from datetime import datetime
 
 # Get and check file path
 parser = ArgumentParser()
 parser.add_argument("--file", type=str, default="benchmark_log")
 parser.add_argument("--path", type=str, default=None)
-parser.add_argument("--seed", type=int, default=12345)
+parser.add_argument("--seed", type=int, default=None)
 parser.add_argument("--algo", type=int, default=0)
 parser.add_argument("--sim_time", type=float, default=10000.)
 parser.add_argument("--scale", type=float, default=1.)
@@ -94,7 +95,7 @@ sim_dict.update({
     't_presim': 0.1,
     't_sim': 1. * args.sim_time,
     'rec_dev': [],
-    'master_seed': args.seed})
+    'master_seed': datetime.now().microsecond if args.seed is None else args.seed})
 
 net_dict.update({
     'N_scaling': 1. * args.scale,
