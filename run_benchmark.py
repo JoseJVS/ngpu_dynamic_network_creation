@@ -51,8 +51,8 @@ parser.add_argument("--file", type=str, default="benchmark_log")
 parser.add_argument("--path", type=str, default=None)
 parser.add_argument("--seed", type=int, default=12345)
 parser.add_argument("--algo", type=int, default=0)
-parser.add_argument("--sim_time", type=int, default=10000)
-parser.add_argument("--scale", type=int, default=1)
+parser.add_argument("--sim_time", type=float, default=10000.)
+parser.add_argument("--scale", type=float, default=1.)
 args = parser.parse_args()
 
 if args.path is None:
