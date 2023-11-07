@@ -36,13 +36,16 @@ from time import perf_counter_ns
 from argparse import ArgumentParser
 from pathlib import Path
 from json import dump, dumps
+from datetime import datetime
 
 # Get and check file path
 parser = ArgumentParser()
-parser.add_argument("file", type=str)
+parser.add_argument("--file", type=str, default="benchmark_log")
 parser.add_argument("--path", type=str, default=None)
-parser.add_argument("--seed", type=int, default=12345)
-parser.add_argument("--threads", type=int, default=16)
+parser.add_argument("--seed", type=int, default=None)
+parser.add_argument("--threads", type=int, default=2)
+parser.add_argument("--sim_time", type=float, default=10000.)
+parser.add_argument("--scale", type=float, default=1.)
 args = parser.parse_args()
 
 if args.path is None:
@@ -74,15 +77,15 @@ print(f"Arguments: {args}")
 
 sim_dict.update({
     't_presim': 0.1,
-    't_sim': 10000.,
+    't_sim': 1. * args.sim_time,
     'rec_dev': [],
-    'rng_seed': args.seed,
+    'rng_seed': datetime.now.microseconds if args.seed is None else args.seed,
     'local_num_threads': args.threads,
     'print_time': False})
 
 net_dict.update({
-    'N_scaling': 1.,
-    'K_scaling': 1.,
+    'N_scaling': 1. * args.scale,
+    'K_scaling': 1. * args.scale,
     'poisson_input': True,
     'V0_type': 'optimized'})
 
