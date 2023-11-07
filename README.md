@@ -1,81 +1,80 @@
-# NEST GPU Dynamic Network Creation
+# Cortical microcircuit model for NEST
 
-This repository contains the data and scripts used for the paper: *Runtime Construction of Large-Scale Spiking Neuronal Network Models on GPU Devices*.
+Taken from https://github.com/nest/nest-simulator/tree/master/pynest/examples/Potjans_2014
 <br>
-If you want to cite this, use:
-<br>
-<br>
-Golosio, B.; Villamar, J.; Tiddia, G.; Pastorelli, E.; Stapmanns, J.; Fanti, V.; Paolucci, P.S.; Morrison, A.; Senk, J. Runtime Construction of Large-Scale Spiking Neuronal Network Models on GPU Devices. Appl. Sci. 2023, 13, 9598. https://doi.org/10.3390/app13179598
+Time of writing: 11.03.2023, last update to model: 01.02.2023
+
 <br>
 
-## Requirements
-To run the simulations, NEST GPU version tag [offboard](https://github.com/nest/nest-gpu/releases/tag/nest-gpu_offboard) and version tag [onboard](https://github.com/nest/nest-gpu/releases/tag/nest-gpu_onboard), NEST version 3.3, and GeNN version 4.8.0 are required.
-For installation instructions on the simulators, see:
- - https://nest-gpu.readthedocs.io/en/latest/installation/index.html
+To reproduce the performance shown in the data for the NEST simulations it is needed to use high-performance computing systems, the systems used for the paper are described in the "Hardware and Software" subsection 2.5.
+
+## Prerequisites
+
+These scripts were tested with NEST simulator version 3.3
+Installation instructions can be found at:
  - https://nest-simulator.readthedocs.io/en/v3.3/installation/index.html
- - https://genn-team.github.io/genn/documentation/4/html/d8/d99/Installation.html
 
-Additionally to run the scripts to post process the data and generate plots, Python and additional packages are required.
-To run the data post processing scripts and plotting scripts the following software was used:
+<br>
+
+Furthermore to run the full scaled microcircuit in a compute node, while taking all the advantage of compute power, MPI usage is required.
+
+<br>
+
+To obtain the same network construction times as shown in the results section 3, [jemalloc](https://github.com/jemalloc/jemalloc) is needed.
+To allow NEST to take advantage of its functionalities, exporting the path to the compiled, shared library is needed:
+```shell
+export LD_PRELOAD=PATH_TO/libjemalloc.so
+```
+\[Optional]: This can be set in [L23](benchmark.sh#L23) of [benchmark.sh](benchmark.sh) script.
+
+<br>
+
+Additionally to run the scripts to post process the data, Python and additional packages are required.
+To run the data post processing scripts we used:
  * Python 3.8.6
- * Pandas 1.3.3
  * Numpy 1.22
- * Matplotlib 3.5
- * Tol Colors 1.2.1 (https://pypi.org/project/tol-colors/)
 
 ## Contents
-The [data](data/) directory contains all of the generated data used in the paper.
-The [plots](plots/) directory contains the scripts to generate the plots from the Results section in the paper.
-The [validation](validation/) directory contains the scripts to do the statistical validation of spike recordings and generate the respective plots in the paper.
 
-Simulation scripts to generate new datasets are found in [ngpu_microcircuit](ngpu_microcircuit/), [ngpu_two_population_network](ngpu_two_population_network), [nest_microcircuit](nest_microcircuit/), [genn_microcircuit](genn_microcirctui/).
+### Original files
 
-Simulation scripts directories prepended by:
- - ngpu_: are meant to be run with NEST GPU.
- - nest_: are meant to be run with NEST.
- - genn_: are meant to be run with GeNN.
-
- <br>
-
- The models available in this repository are:
-  - Potjans & Diesmann cortical microcircuit for NEST GPU, NEST and GeNN
-    - NEST GPU microcircuit taken from: https://github.com/nest/nest-gpu/tree/main/python/Potjans_2014
-    - NEST microcircuit taken from: https://github.com/nest/nest-simulator/tree/master/pynest/examples/Potjans_2014
-    - GeNN microcircuit taken from: https://github.com/BrainsOnBoard/pygenn_paper
-  - Two population network for NEST GPU:
-    - This is a simple network for network construction benchmarks with population size and connection count scaling.
-
-<br>
-
-Each model directory contains additional benchmarking and data post processing scripts in order to automatically run simulations and gather the resulting data.
-In particular:
- - ```run_benchmark.py```: Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section 2.4), and data exporting to json files.
-   - This Python script is meant to be run by the ```benchmark.sh``` script found in each model directory.
-     - To run it individually, examples of local execution and SLURM execution are found in each corresponding ```benchmark.sh```.
-   - As stated in the "Hardware and Software" subsection 2.5, in the microcircuit benchmarking scripts:
-     - Spike recording is disabled.
-     - Poisson generators are enabled.
-     - Optimized membrane potentials are enabled.
-     - Presimulation runs for 0.1ms.
-     - Simulation runs for 10s.
- - ```gather_data.py```: Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
-   - This Python script is meant to be run by the ```benchmark.sh``` script found in each model directory.
-     - To run it individually, examples of local execution are found in each corresponding ```benchmark.sh```.
- - ```benchmark.sh```: Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
-   - Can be used to run locally or through SLURM with an interactive session.
-     - By default, it is set to run locally. To change this, uncomment respective line execution line in script. More information can be found in the READMEs of each model directory.
-     - SLURM executions assume a system equipped with 128, this can be changed through ```cores``` variable at the beginning of each script.
-
-Individual instructions for each script are given in the respective model directories.
+These files did not change with respect to the source at time of writing:
+ - [run_microcircuit.py](run_microcircuit.py)
+ - [helpers.py](helpers.py)
+ - [sim_params.py](sim_params.py)
+ - [network_params.py](network_params.py)
+ - [stimulus_params.py](stimulus_params.py)
 
 
-## Contact
+### Modified files
 
-Gianmarco Tiddia, Department of Physics, University of Cagliary, Italy, Istituto Nazionale di Fisica Nucleare, Sezione di Cagliari, Italy, gianmarco.tiddia@ca.infn.it
-<br>
-Jose Villamar, Institute of Neuroscience and Medicine (INM-6), Institute for Advanced Simulation (IAS-6), JARA-Institute Brain Structure-Function Relationships (INM-10), Jülich Research Centre, Jülich, Germany, j.villamar@fz-juelich.de
+These files were modified for benchmarking purposes:
+ - [network.py](network.py):
+    - Disabled Prepare and Cleanup call from connect function [L98](network.py#L98): To properly measure calibration time, Prepare and Cleanup functions were commented: [L126](network.py#L126) and [L127](network.py#L127).
+    - Fixed MPI related bug at __setup_nest function [L263](network.py#L263) see pull request [2749](https://github.com/nest/nest-simulator/pull/2749) in NEST github repository.
 
+### Additional files
 
-## License
-GPL 3.0 [license](LICENSE)
+These files were added for benchmarking purposes:
+ - [run_benchmark.py](run_benchmark.py): Python script based on the original simulation script of the model with additional adaptations for benchmarking, notably the addition of command line argument handling, simulation timers (cf Models sub-section 2.4), and data exporting to json files.
+    - Added handling of number of threads and processes passed as arguments.
+    - Added computing of mean firing rate of neurons using the local_spike_counter kernel attribute.
+ - [merge_data.py](merge_data.py): Python script to merge output of multiple MPI processes during a single simulation.
+    - This Python script is meant to be run by the ```benchmark.sh``` script found in each model directory.
+       - To run it individually, examples of local execution are found in each corresponding ```benchmark.sh```.
+ - [gather_data.py](gather_data.py): Python script designed to collect the data from all of the simulation runs of a benchmark and compute the mean values and the standard deviation of the simulation timers.
+ - [benchmark.sh](benchmark.sh): Bash script to automatically benchmark the model with 10 different random generation seeds and collect the data.
+    - This script assumes the system used is equipped with 128 cores. By default the script allocates 8 MPI processes and 16 threads per process for the simulation. This can be changed in [L4](benchmark.sh#L4)-[L10](benchmark.sh#L10).
+    - Additionally this script exploits OpenMP pinning and MPI binding to maximize simulation performance.
+       - OpenMP pinning: [L25](benchmark.sh#L25)-[L28](benchmark.sh#L28)
+       - MPI binding: [L48](benchmark.sh#L48), handled by SLURM
  
+## Execution
+
+To run a 10 simulation benchmark using 10 different random generation seeds:
+```shell
+bash benchmark.sh
+```
+
+By default this script runs with SLURM in an interactive session, this can be changed to run locally by commenting [L62](benchmark.sh#L62) and uncommenting [L59](benchmark.sh#L59).
+Additionally setting the specific MPI executor (e.g. mpirun, mpiexec), the number of processes argument (e.g. -n, -np) and the MPI process binding is necessary.

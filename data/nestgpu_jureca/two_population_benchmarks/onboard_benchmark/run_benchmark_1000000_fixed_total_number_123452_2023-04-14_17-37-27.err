@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "simple_net.py", line 93, in <module>
-    ngpu.Connect(neuron_pop1, neuron_pop2, conn_dict, syn_dict)
-  File "/p/project/cjinb33/tiddia1/nestgpu_conn/build2/lib/python3.8/site-packages/nestgpu.py", line 1961, in Connect
-    SetConnSpecParam(param_name, conn_dict[param_name])
-  File "/p/project/cjinb33/tiddia1/nestgpu_conn/build2/lib/python3.8/site-packages/nestgpu.py", line 1751, in SetConnSpecParam
-    raise ValueError(GetErrorMessage())
-ValueError: b'total_num must be >=0'
