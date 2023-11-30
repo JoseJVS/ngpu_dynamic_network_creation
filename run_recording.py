@@ -48,25 +48,21 @@ from datetime import datetime
 # Get and check file path
 parser = ArgumentParser()
 parser.add_argument("--log_file", type=str, default="recording_log")
-parser.add_argument("--data_path", type=str, default=None)
-parser.add_argument("--meta_path", type=str, default=None)
+parser.add_argument("--path", type=str, default=None)
 parser.add_argument("--seed", type=int, default=None)
 parser.add_argument("--algo", type=int, default=0)
 parser.add_argument("--sim_time", type=float, default=10000.)
 parser.add_argument("--scale", type=float, default=1.)
 args = parser.parse_args()
 
-if args.data_path is None:
+if args.path is None:
     data_path = Path(sim_dict["data_path"])
 else:
-    data_path = Path(args.data_path)
+    data_path = Path(args.path)
     sim_dict["data_path"] = str(data_path) + "/" # Path to str never ends with /
 
 file_name = args.log_file + ".json"
-if args.meta_path is None:
-    file_path = data_path / file_name
-else:
-    file_path = Path(args.meta_path) / file_name
+file_path = data_path / file_name
 
 
 assert 0 <= args.algo and args.algo < 9
