@@ -47,22 +47,27 @@ from datetime import datetime
 
 # Get and check file path
 parser = ArgumentParser()
-parser.add_argument("--file", type=str, default="recording_log")
-parser.add_argument("--path", type=str, default=None)
+parser.add_argument("--log_file", type=str, default="recording_log")
+parser.add_argument("--data_path", type=str, default=None)
+parser.add_argument("--meta_path", type=str, default=None)
 parser.add_argument("--seed", type=int, default=None)
 parser.add_argument("--algo", type=int, default=0)
 parser.add_argument("--sim_time", type=float, default=10000.)
 parser.add_argument("--scale", type=float, default=1.)
 args = parser.parse_args()
 
-if args.path is None:
+if args.data_path is None:
     data_path = Path(sim_dict["data_path"])
 else:
-    data_path = Path(args.path)
+    data_path = Path(args.data_path)
     sim_dict["data_path"] = str(data_path) + "/" # Path to str never ends with /
 
-file_name = args.file + ".json"
-file_path = data_path / file_name
+file_name = args.log_file + ".json"
+if args.meta_path is None:
+    file_path = data_path / file_name
+else:
+    file_path = Path(args.meta_path) / file_name
+
 
 assert 0 <= args.algo and args.algo < 9
 
@@ -143,12 +148,19 @@ num_neurons = net.get_network_size()
 conf_dict = {
     "nested_loop_algo": nl_dict[args.algo],
     "num_neurons": num_neurons,
-    "seed": args.seed,
+    "seed": sim_dict["master_seed"],
 }
+
+firing_rates_interval = np.array([sim_dict['t_presim'],
+                                  sim_dict['t_presim'] + sim_dict['t_sim']])
+
+firing_rates = net.get_pop_firing_rates(firing_rates_interval)
 
 info_dict = {
         "conf": conf_dict,
-        "timers": time_dict
+        "timers": time_dict,
+        "firing_rates": firing_rates,
+        "real_time_factor": (time_dict["time_simulate"] / 1e9) / (sim_dict["t_sim"] / 1000)
     }
 
 with file_path.open("w") as f:
@@ -166,7 +178,5 @@ print(dumps(info_dict, indent=4))
 
 raster_plot_interval = np.array([stim_dict['th_start'] - 100.0,
                                  stim_dict['th_start'] + 100.0])
-firing_rates_interval = np.array([sim_dict['t_presim'],
-                                  sim_dict['t_presim'] + sim_dict['t_sim']])
 net.evaluate(raster_plot_interval, firing_rates_interval)
 

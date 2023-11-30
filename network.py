@@ -160,27 +160,9 @@ class Network:
             None
 
         """
+        if not hasattr(self, "_pop_spikes"):
+            self.save_spikes()
         
-        spike_times_net = ngpu.GetRecSpikeTimes(self.neurons)
-        popid = 0
-        for i_pop in range(len(self.pops)):
-            population = self.pops[i_pop]
-            data = []
-            spike_times_list = spike_times_net[popid:popid+len(population)]
-            popid += len(population)
-            for i_neur in range(len(population)):
-                spike_times = spike_times_list[i_neur]
-                if (len(spike_times) != 0):
-                    # print("i_pop:", i_pop, " i_neur:", i_neur, " n_spikes:",
-                    #      len(spike_times))
-                    for t in spike_times:
-                        data.append([population[i_neur], t])
-            arr = np.array(data)
-            fn = os.path.join(self.data_path, 'spike_times_' + str(i_pop) +
-                              '.dat')
-            fmt='%d\t%.3f'
-            np.savetxt(fn, arr, fmt=fmt, header="sender time_ms",
-                       comments='')
         if self.Rank == 0:
             print('Interval to plot spikes: {} ms'.format(raster_plot_interval))
             helpers.plot_raster(
@@ -547,4 +529,73 @@ class Network:
             ngpu.Connect(
                 self.thalamic_population, target_pop,
                 conn_spec=conn_dict_th, syn_spec=syn_dict_th)
+            
+    def save_spikes(self):
+        """ Output spike files.
 
+        Parameters
+        ----------
+            None
+
+        Returns
+        -------
+            None
+
+        """
+        
+        spike_times_net = ngpu.GetRecSpikeTimes(self.neurons)
+        popid = 0
+        self._pop_spikes = {}
+        for i_pop in range(len(self.pops)):
+            population = self.pops[i_pop]
+            data = []
+            spike_times_list = spike_times_net[popid:popid+len(population)]
+            popid += len(population)
+            for i_neur in range(len(population)):
+                spike_times = spike_times_list[i_neur]
+                if (len(spike_times) != 0):
+                    for t in spike_times:
+                        data.append([population[i_neur], t])
+            arr = np.array(data)
+            self._pop_spikes[i_pop] = arr
+
+            if len(arr) != 0:
+                fn = os.path.join(self.data_path, 'spike_times_' + str(i_pop) +
+                                '.dat')
+                fmt='%d\t%.3f'
+                np.savetxt(fn, arr, fmt=fmt, header="sender time_ms",
+                       comments='')
+
+    def get_pop_firing_rates(self, firing_rates_interval):
+        """ Displays simulation results.
+
+        Calculates the firing rate of each population and returns them as a
+        dict.
+
+        Parameters
+        ----------
+        firing_rates_interval
+            Times (in ms) to start and stop lading spike times for computing
+            firing rates (included).
+
+        Returns
+        -------
+            Dictionary of firing rates in Hz per population.
+
+        """
+        interval_length = firing_rates_interval[1] - firing_rates_interval[0]
+        if interval_length <= 0:
+            raise ValueError(f"The interval for spike counting cannot be null or negative: {firing_rates_interval}")
+        result = {}
+        if not hasattr(self, "_pop_spikes"):
+            self.save_spikes()
+
+        for i_pop, spike_data in self._pop_spikes.items():
+            spike_count = 0
+            for _, t in spike_data:
+                if firing_rates_interval[0] <= t <= firing_rates_interval[1]:
+                    spike_count += 1
+            population_name = self.net_dict["populations"][i_pop]
+            result[population_name] = (spike_count / self.num_neurons[i_pop]) / (interval_length / 1000)
+
+        return result
