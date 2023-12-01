@@ -60,7 +60,7 @@ else:
     sim_dict["data_path"] = str(data_path) + "/" # Path to str never ends with /
 
 rank = nest.Rank()
-file_name = args.file + f"_rank_{rank}.json"
+file_name = args.log_file + f"_rank_{rank}.json"
 file_path = data_path / file_name
 assert 0 < args.threads
 
