@@ -586,16 +586,20 @@ class Network:
         interval_length = firing_rates_interval[1] - firing_rates_interval[0]
         if interval_length <= 0:
             raise ValueError(f"The interval for spike counting cannot be null or negative: {firing_rates_interval}")
+        interval_length = interval_length / 1000
         result = {}
         if not hasattr(self, "_pop_spikes"):
             self.save_spikes()
 
+        total_spike_count = 0
         for i_pop, spike_data in self._pop_spikes.items():
             spike_count = 0
             for _, t in spike_data:
                 if firing_rates_interval[0] <= t <= firing_rates_interval[1]:
                     spike_count += 1
+            total_spike_count += spike_count
             population_name = self.net_dict["populations"][i_pop]
-            result[population_name] = (spike_count / self.num_neurons[i_pop]) / (interval_length / 1000)
+            result[population_name] = (spike_count / self.num_neurons[i_pop]) / interval_length
+        result["all_populations"] = (total_spike_count / self.n_tot_neurons) /  interval_length
 
         return result
