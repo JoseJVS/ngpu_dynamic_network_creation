@@ -1,6 +1,3 @@
-
-source jemalloc.sh
-
 # Fix numpy (numexpr) max number of supported threads
 export NUMEXPR_MAX_THREADS=128
 
