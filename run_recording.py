@@ -45,7 +45,7 @@ from datetime import datetime
 
 # Get and check file path
 parser = ArgumentParser()
-parser.add_argument("--file", type=str, default="benchmark_log")
+parser.add_argument("--log_file", type=str, default="recording_log")
 parser.add_argument("--path", type=str, default=None)
 parser.add_argument("--seed", type=int, default=None)
 parser.add_argument("--threads", type=int, default=2)
@@ -111,6 +111,22 @@ time_calibrate = perf_counter_ns()
 net.simulate(sim_dict['t_sim'])
 time_simulate = perf_counter_ns()
 
+
+###############################################################################
+# Plot a spike raster of the simulated neurons and a box plot of the firing
+# rates for each population.
+# For visual purposes only, spikes 100 ms before and 100 ms after the thalamic
+# stimulus time are plotted here by default.
+# The computation of spike rates discards the presimulation time to exclude
+# initialization artifacts.
+
+raster_plot_interval = np.array([stim_dict['th_start'] - 100.0,
+                                 stim_dict['th_start'] + 100.0])
+firing_rates_interval = np.array([sim_dict['t_presim'],
+                                  sim_dict['t_presim'] + sim_dict['t_sim']])
+population_rates = net.evaluate(raster_plot_interval, firing_rates_interval)
+
+
 ###############################################################################
 # Summarize time measurements. Rank 0 usually takes longest because of print
 # calls.
@@ -131,11 +147,7 @@ time_dict = {
 local_spike_counter = nest.GetKernelStatus('local_spike_counter')
 num_neurons = nest.GetKernelStatus('network_size')
 rate = 1. * local_spike_counter / num_neurons / (sim_dict['t_presim'] + sim_dict['t_sim']) * 1000
-
-stats_dict = {
-    "local_spike_counter": local_spike_counter,
-    "rate": rate
-}
+population_rates["all_populations"] = rate
 
 if args.threads != nest.GetKernelStatus('local_num_threads'):
     print("WARNING: Thread number mismatch")
@@ -152,25 +164,12 @@ conf_dict = {
 info_dict = {
     "rank": rank,
     "conf": conf_dict,
-    "stats": stats_dict,
-    "timers": time_dict
+    "timers": time_dict,
+    "firing_rates": population_rates,
+    "real_time_factor": (time_dict["time_simulate"] / 1e9) / (sim_dict["t_sim"] / 1000)
 }
 
 with file_path.open("w") as f:
     dump(info_dict, f, indent=4)
 
 print(dumps(info_dict, indent=4))
-
-###############################################################################
-# Plot a spike raster of the simulated neurons and a box plot of the firing
-# rates for each population.
-# For visual purposes only, spikes 100 ms before and 100 ms after the thalamic
-# stimulus time are plotted here by default.
-# The computation of spike rates discards the presimulation time to exclude
-# initialization artifacts.
-
-raster_plot_interval = np.array([stim_dict['th_start'] - 100.0,
-                                 stim_dict['th_start'] + 100.0])
-firing_rates_interval = np.array([sim_dict['t_presim'],
-                                  sim_dict['t_presim'] + sim_dict['t_sim']])
-net.evaluate(raster_plot_interval, firing_rates_interval)

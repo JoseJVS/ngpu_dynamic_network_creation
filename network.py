@@ -161,6 +161,9 @@ class Network:
             None
 
         """
+        population_rates = {}
+        all_mean_rates = [0. for i in range(self.num_pops)]
+        all_std_rates = [0. for i in range(self.num_pops)]
         if nest.Rank() == 0:
             print('Interval to plot spikes: {} ms'.format(raster_plot_interval))
             helpers.plot_raster(
@@ -172,10 +175,15 @@ class Network:
 
             print('Interval to compute firing rates: {} ms'.format(
                 firing_rates_interval))
-            helpers.firing_rates(
+            all_mean_rates, all_std_rates = helpers.firing_rates(
                 self.data_path, 'spike_recorder',
                 firing_rates_interval[0], firing_rates_interval[1])
             helpers.boxplot(self.data_path, self.net_dict['populations'])
+
+        for i in range(self.num_pops):
+            population_rates[self.net_dict['populations'][i]] = all_mean_rates
+
+        return population_rates
 
     def __derive_parameters(self):
         """

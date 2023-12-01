@@ -295,6 +295,8 @@ def firing_rates(path, name, begin, end):
     print('Mean rates: {} spikes/s'.format(np.around(all_mean_rates, decimals=3)))
     print('Standard deviation of rates: {} spikes/s'.format(
         np.around(all_std_rates, decimals=3)))
+    
+    return all_mean_rates, all_std_rates
 
 
 def boxplot(path, populations):
